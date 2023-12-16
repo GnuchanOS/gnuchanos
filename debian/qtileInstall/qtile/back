@@ -1,0 +1,17 @@
+#!/bin/bash
+
+xrandr_output=$(xrandr)
+
+lvds1_connected=$(echo "$xrandr_output" | grep "LVDS-1 connected")
+vga1_connected=$(echo "$xrandr_output" | grep "VGA-1 connected")
+
+xrandr --newmode "1280x1024_60.00"  109.00  1280 1368 1496 1712  1024 1027 1034 1063 -hsync +vsync
+xrandr --addmode VGA-1 "1280x1024_60.00"
+
+if [ -n "$lvds1_connected" ] && [ -n "$vga1_connected" ]; then
+    xrandr --output LVDS-1 --auto --output VGA-1 --auto --right-of LVDS-1
+fi
+
+
+
+nitrogen --restore

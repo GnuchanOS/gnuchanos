@@ -1,0 +1,15 @@
+sudo apt-get install -y fish  qutebrowser lxappearance btop nemo nitrogen arandr
+sudo apt-get install -y conky picom zathura zathura-pdf-poppler openssh-server irqbalance 
+sudo apt-get install -y zip unzip 7zip vlc qbittorrent
+sudo apt-get install -y blender audacity godot3 gimp
+
+
+sudo apt-get remove -y firefox 
+
+
+
+
+sudo systemctl enable --now irqbalance
+sudo systemctl enable ssh
+
+

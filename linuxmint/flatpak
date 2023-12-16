@@ -1,0 +1,17 @@
+sudo apt-get install flatpak
+
+flatpak install flathub org.kde.kdenlive
+
+
+#### finish
+
+### works fine to me
+flatpak install flathub org.ppsspp.PPSSPP
+flatpak install flathub org.duckstation.DuckStation
+flatpak install flathub net.pcsx2.PCSX2
+
+
+
+#### testing not finish
+flatpak install flathub com.valvesoftware.Steam
+

@@ -1,0 +1,4 @@
+
+sudo apt-get install xcursor-themes -y
+sudo update-alternatives --install /usr/share/icons/default/index.theme x-cursor-theme /usr/share/icons/GnuchanCursors/index.theme 100
+sudo update-alternatives --config x-cursor-theme
