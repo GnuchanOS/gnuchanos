@@ -1,6 +1,5 @@
 #chmod +x ~/.config/qtile/display.sh 
 #chmod +x ~/.config/qtile/autostart.sh
-
 #cat  ~/.local/share/qtile/qtile.log   #this is eror log
 
 #qtile cmd-obj -o cmd -f debug
@@ -12,7 +11,6 @@ import subprocess
 import socket
 from typing import List
 
-
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -21,71 +19,63 @@ from libqtile import hook
 from libqtile import qtile
 #############################################
 
-
-
-
 #############################################
 mod = "mod4"
-terminal = guess_terminal("cool-retro-term")
+terminal = guess_terminal("guake")
 #############################################
 
-
-
 #####################################################################################################################
-keys = [#-:-------------------------------------------------------------------------:-#
+keys = [
+    # move focus
     Key([mod], "Up", lazy.layout.up()),
     Key([mod], "Down", lazy.layout.down()),
     Key([mod], "Left", lazy.layout.left()),
     Key([mod], "Right", lazy.layout.right()),
-    #Key([mod], "space", lazy.layout.next(),  desc="Move window focus to other window"),
 
+    # move focus window
     Key([mod, "shift"], "Left", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "Right", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
 
+    # resize focus window
     Key([mod, "control"], "Left", lazy.layout.grow_left()),
     Key([mod, "control"], "Right", lazy.layout.grow_right()),
     Key([mod, "control"], "Down", lazy.layout.grow_down()),
     Key([mod, "control"], "Up", lazy.layout.grow_up()),
-    
-    Key([mod], "n", lazy.layout.normalize()),
-#-:-------------------------------------------------------------------------:-#
-    Key([mod, "shift"], "Return", lazy.spawn("cool-retro-term -e ranger")),
-    Key([mod], "Return", lazy.spawn(terminal)),
-#-:-------------------------------------------------------------------------:-#
-    Key([mod], "Tab", lazy.next_layout()),
-    Key([mod], "w", lazy.window.kill()),
-#-:-------------------------------------------------------------------------:-#
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
-#-:-------------------------------------------------------------------------:-#
+
+    # file manager and terminal
+    Key([mod, "shift"], "Return", lazy.spawn("guake -e ranger")),
+    Key([mod], "Return", lazy.spawn(terminal)),
+
+    # full screen and window mode
+    Key([mod], "Tab", lazy.next_layout()),
+
+    # close window
+    Key([mod], "w", lazy.window.kill()),
+
     Key([mod], "s", lazy.spawn("scrot")),
     Key([], "Print", lazy.spawn("scrot")),
     Key([mod, "shift"], "s", lazy.spawn("scrot -s")),
+
+    # ekstra
     Key([mod, "shift"], "z", lazy.spawn("lxappearance")),
     Key([mod], "l", lazy.spawn("leafpad")),
     Key([mod], "p", lazy.spawn("pavucontrol")),
-
     
+    # simple programs
     Key([mod], "r", lazy.spawn("python3 /home/archkubi/.config/qtile/programs/prunner/prunner.py", shell=True)),
 
-
+    # you can use this program runners
     #Key([mod], "r", lazy.spawn("rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite")),
     #Key([mod], "f", lazy.spawn("dmenu_run -i -b -p 'GnuChanOS'  -fn 'Ubuntu Mono:bold:pixelsize=25' -nb '#240046' -nf '#9d4edd' -sf '#9d4edd' -sb '#5a189a' ")),    
-
-
-]#-:-------------------------------------------------------------------------:-#
+]
 #####################################################################################################################
 
-
-
 #####################################################################################################################
-
-
-
-groups = [Group(i) for i in "1234"]
-
+groups = [Group(i) for i in "123456"]
 
 for i in groups:
     keys.extend([
@@ -97,9 +87,6 @@ for i in groups:
     ])
 #####################################################################################################################
 
-
-
-
 #####################################################################################################################
 layouts = [
     layout.Columns(margin=14, border_width=6, border_focus="#9d4edd", border_normal="#240046"),
@@ -107,7 +94,6 @@ layouts = [
     layout.Max(),
 ]
 #####################################################################################################################
-
 
 #####################################################################################################################
 widget_defaults = dict(
@@ -117,6 +103,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 #####################################################################################################################
+
 #####################################################################################################################
 colors = [["#240046", "#240046"], # 0: background color
           ["#5a189a", "#5a189a"], # 1: spacer background color
@@ -126,8 +113,6 @@ colors = [["#240046", "#240046"], # 0: background color
           ]
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 #####################################################################################################################
-
-
 
 #####################################################################################################################
 screens = [
@@ -144,9 +129,6 @@ top=bar.Bar(
     widget.GroupBox(background = colors[4],active = colors[2], inactive = colors[3],),
     widget.Systray(padding=10,foreground=colors[2],background=colors[0],),  
 
-
-
-
     widget.Spacer(background = colors[1]),
 
     widget.Image(filename = "~/.config/qtile/img/gnu.png",scale = "False",background = colors[0],),
@@ -155,15 +137,9 @@ top=bar.Bar(
 
     widget.Spacer(background = colors[1]),
 
-
-
     widget.KeyboardLayout(configured_keyboards="tr", foreground = colors[2],background = colors[4]),
     #widget.PulseVolume(foreground = colors[2],background = colors[4]),
     widget.Clock(foreground = colors[2],background = colors[4],format = "%A, %B %d - %H:%M "),
-
-
-
-
 
     widget.Image(filename = "~/.config/qtile/img/rem.png", background = colors[0]),
     widget.TextBox(background = colors[0], text=":"),
@@ -173,17 +149,10 @@ top=bar.Bar(
             
                        ),
 
-
-
-
-
-
 bottom=bar.Bar(
 [
      widget.TextBox(background = colors[0], text=":"),
     widget.Spacer(background = colors[1]),
-
-
 
     widget.HDDBusyGraph(device = "sda", graph_color = colors[2], fill_color = colors[2],  border_color = colors[1], background = colors[4]),
     widget.ThermalSensor(foreground = colors[2],background = colors[4],threshold = 90,fmt = 'Temp: {}',padding = 5),
@@ -200,9 +169,6 @@ bottom=bar.Bar(
         ),
     #widget.Wlan(interface = "wlp1s0", foreground = colors[2],background = colors[4]),
 
-
-
-
     widget.Spacer(background = colors[1]),
     widget.TextBox(background = colors[0], text=":"),
 
@@ -214,11 +180,6 @@ bottom=bar.Bar(
 ]
 #####################################################################################################################
 
-
-
-
-
-
 #####################################################################################################################
 mouse = [
     Drag([mod, "shift"], "Button1", lazy.window.set_position_floating(),   start=lazy.window.get_position()),
@@ -227,19 +188,12 @@ mouse = [
 ]
 #####################################################################################################################
 
-
-
-
-
-
-
 #####################################################################################################################
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-
 
 floating_layout = layout.Floating(
 
@@ -254,14 +208,9 @@ float_rules=[
 ]                               )
 #####################################################################################################################
 
-
-
 #####################################################################################################################
 os.popen("sh /home/archkubi/.config/qtile/autostart.sh")
 #####################################################################################################################
-
-
-
 
 #####################################################################################################################
 auto_fullscreen = True

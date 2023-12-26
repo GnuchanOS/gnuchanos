@@ -96,3 +96,4 @@ do
 done
 
 
+sudo pacman -Syyu lib32-gnutls

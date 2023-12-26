@@ -7,8 +7,11 @@ xset s off
 # disable sleep mode
 
 picom --config ~/.config/qtile/picom.conf &
+
+sh ~/.config/qtile/display.sh  &
+
 nitrogen --restore &
-#sh ~/.config/qtile/display.sh  &
+
 
 start the conky to learn the shortcuts
 killall conky
