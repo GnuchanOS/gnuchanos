@@ -60,11 +60,8 @@ while true; do
     read -p "1 -) computer name | 2 -) finish :-> " input
     if   [ "$input" == "1" ]; then
         read -p 'Enter Computer Name : ' computer_name
-        if [ "$computer_name" ]; then
-            echo "input is empty"
-        else
-            echo "$computer_name" >> /etc/hostname
-        fi
+        echo "$computer_name" >> /etc/hostname
+        cat /etc/hosts
     elif [ "$input" == "2" ]; then
         break
     else
@@ -80,7 +77,7 @@ read -rsn1 -p "###### SYSTEM LANGUAGE ##########################################
 #---------------------------------------------------------------#
 read -rsn1 -p "if you speak another language dont forget edit this --> part2.sh : English Language = en_US.UTF-8 Press Enter" variable; echo
 while true; do
-    read -p "1 -) Turkish | 2 -) English | 4 -) finish :-> " input
+    read -p "1 -) Turkish | 2 -) English | 3 -) finish :-> " input
     echo "system language"
     if   [ "$input" == "1" ]; then
         echo "LC_ALL=tr_TR.UTF-8" >> /etc/environment
@@ -219,7 +216,7 @@ read -rsn1 -p "##################### FINISH : PRESS ENTER ######################
 
 ##################################################################################################
 read -rsn1 -p "####### TERMİNAL ##############################################" variable; echo
-pacman -S --noconfirm xterm fish
+pacman -S --noconfirm xterm fish guake
 
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################

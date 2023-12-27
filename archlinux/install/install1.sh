@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo "if you see this ## press enter"
-
-
 ###################################################################################################
 timedatectl set-ntp true
 hwclock -w
@@ -16,15 +13,44 @@ read -rsn1 -p "don't forget 1:type-swap 2:boot 3:harddisk not dual boot(system) 
 while true; do
     read -p "1 -) Harddisk | 2 -) create Harddisk | 3 -) finish :-> " input
     if [ "$input" == "1" ]; then
-        parted /dev/sda mklabel msdos
-        cfdisk /dev/sda
+        while true; do
+            echo "choose harddisk name"
+            echo "1 -) sda - note normaly harddisk is sda usn is sdb but i don't know ssd"
+            echo "2 -) vda - virtual box | vm"
+            echo "3 -) disk list"
+            echo "4 -) input diffrent harddisk name"
+            echo "5 -) finish"
+            read -p " | 1 | 2 | 3 | 4 | :-> " input
+            if   [ "$input" == "1" ]; then
+                parted /dev/sda mklabel msdos
+                cfdisk /dev/sda
+            elif [ "$input" == "2" ]; then
+                parted /dev/vda mklabel msdos
+                cfdisk /dev/vda
+            elif [ "$input" == "3"]; then
+                fdisk -l
+            elif [ "$input" == "4" ]; then
+                while true; do
+                    echo "example --> /dev/sda"
+                    echo "1 -) input disk name"
+                    echo "2 -) finish"
+                    read -p " | 1 | 2 | :-> " input
+                    if   [ "$input" == "1" ]; then
+                        parted $input mklabel msdos
+                        cfdisk $input
+                    elif [ "$input" == "2"]; then
+                        break
+                    fi
+                done
+            elif [ "$input" == "5" ]; then
+                break
+            fi
+        done
     elif [ "$input" == "2" ]; then
         mkswap /dev/sda1
         mkfs.ext4 /dev/sda2
         mkfs.ext4 /dev/sda3
-
         swapon /dev/sda1
-
         mount /dev/sda3 /mnt
         mkdir /mnt/boot
         mount /dev/sda2 /mnt/boot    
@@ -48,7 +74,6 @@ pacstrap /mnt grub
 genfstab -p /mnt >> /mnt/etc/fstab
 
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
-
 ##################################################################################################
 
 ##################################################################################################

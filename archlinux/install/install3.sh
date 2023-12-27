@@ -2,7 +2,6 @@
 echo "if you see this ## press enter"
 
 sudo localectl --no-convert set-x11-keymap tr
-
 ##################################################################################################
 echo "###### LOCAL TIME #################################################" variable; echo
 read -rsn1 -p "Select Time Zone  Europe/Istanbul My zone //Press Enter" variable; echo
@@ -13,7 +12,7 @@ while true; do
     echo "2 -) custom"
     echo "3 -) finish"
     read -p "| 1 | 2 | 3 | :-> " input
-    if [ "$input" == "1" ]; then
+    if   [ "$input" == "1" ]; then
         timedatectl set-timezone Europe/Istanbul
     elif [ "$input" == "2" ]; then
         timedatectl list-timezones
@@ -40,7 +39,7 @@ read -rsn1 -p "##################### FINISH : PRESS ENTER ######################
 ##################################################################################################
 read -rsn1 -p "######### AUDIO DRIVER ###########################################" variable; echo
 
-sudo pacman -S  --noconfirm pipewire pipewire-alsa pipewire-media-session pipewire-pulse
+sudo pacman -S  --noconfirm pipewire pipewire-alsa pipewire-media-session pipewire-pulse pavucontrol
 sudo systemctl --user --now disable pulseaudio.service pulseaudio.socket
 sudo systemctl --user mask pulseaudio
 sudo systemctl --user --now enable pipewire pipewire-pulse pipewire-media-session
