@@ -1,2 +1,0 @@
-sudo apt-get purge -y xfconf xfce4-session thunar xfdesktop4 exo-utils xfce4-panel xfce4-terminal
-sudo apt-get remove -y mintdesktop mintwelcome
