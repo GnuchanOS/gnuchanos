@@ -1,12 +1,5 @@
 #! /bin/bash
 
-
-
-
-
-
-
-
 while true; do
     echo "1 -) lxdm"
     echo "2 -) plymotuth theme"
@@ -43,5 +36,7 @@ while true; do
 
     elif [ "$input" == "5" ]; then
         break
-
+    else
+        break
+    fi
 done

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "don't forget this i use yay but you can install diffrent things"
+echo "don't forget this, I use yay but you can install different things"
+
 while true; do
     echo "enter number"
     echo "1 -) install yay"
@@ -8,28 +9,26 @@ while true; do
     echo "3 -) install programs"
     echo "4 -) install programs for games"
 
+    read -p "What do you want to do? :->" input
 
-    # yay
-    read -p "whad do you now? :->" input
-    if   [ "$input" "1" ]; then
+    if [ "$input" == "1" ]; then
         mkdir tmp
         cd tmp
         git clone https://aur.archlinux.org/yay-bin.git
         cd yay-bin
         makepkg -si
-        echo "don't forget remove tmp file"
-        
-        echo "You want rar ?"
+        echo "don't forget to remove the tmp file"
+
+        echo "Do you want rar?"
         read -p "yes or no? :-> " input
-        if [ "$input" "yes"]; then
+        if [ "$input" == "yes" ]; then
             yay -Sy rar
-        elif [ "$input" "no" ]; then
+        elif [ "$input" == "no" ]; then
             echo " :( ok "
+        fi
 
-
-    # pip
     elif [ "$input" == "2" ]; then
-        echo "warning default aur is yay"
+        echo "Warning: Default AUR helper is yay"
         while true; do
             echo "1 -) with yay"
             echo "2 -) finish"
@@ -37,23 +36,23 @@ while true; do
             read -p " | 1 | 2 | :-> " input
             if [ "$input" == "1" ]; then
                 yay -S python-pip
-                mkdir ~/.config/pip
+                mkdir -p ~/.config/pip
                 touch ~/.config/pip/pip.conf
                 cp pip.conf ~/.config/pip/
 
-                echo "psutil python-magic pyinstaller  cairocffi cffi xcffib iwlib"
-                read -p "you wanna install this? yes or no"
-                if   [ "$input" == "yes"]; then
-                    python -m pip install psutil python-magic pyinstaller  cairocffi cffi xcffib iwlib
-                elif [ "$input" == "no"]; then
-                    echo " oh noooooooooooo"
+                echo "psutil python-magic pyinstaller cairocffi cffi xcffib iwlib"
+                read -p "Do you want to install these? yes or no: " input
+                if [ "$input" == "yes" ]; then
+                    python -m pip install psutil python-magic pyinstaller cairocffi cffi xcffib iwlib
+                elif [ "$input" == "no" ]; then
+                    echo "Oh noooooooooooo"
                 fi
 
-                read -p "you wanna install this? pysimplegui"
-                if   [ "$input" == "yes"]; then
+                read -p "Do you want to install PySimpleGUI? yes or no: " input
+                if [ "$input" == "yes" ]; then
                     pip install pysimplegui && python -m PySimpleGUI.PySimpleGUI upgrade
-                elif [ "$input" == "no"]; then
-                    echo " oh noooooooooooo"
+                elif [ "$input" == "no" ]; then
+                    echo "Oh noooooooooooo"
                 fi
 
             elif [ "$input" == "2" ]; then
@@ -61,11 +60,9 @@ while true; do
             fi
         done
 
-
-    # programs
     elif [ "$input" == "3" ]; then
         while true; do
-            echo "0 -) #[multilib] you want remo this? -> #"
+            echo "0 -) #[multilib] Do you want to remove this? -> #"
             echo "1 -) base library if you want"
             echo "2 -) programs"
             echo "3 -) ucode for cpu"
@@ -74,28 +71,27 @@ while true; do
             if [ "$input" == "0" ]; then
                 echo "Before"
                 echo "#[multilib]"
-                echo "#Include = /etc/pacman.d/mirrorlist" 
+                echo "#Include = /etc/pacman.d/mirrorlist"
                 echo "-----------------------------------"
                 echo "After"
                 echo "[multilib]"
-                echo "Include = /etc/pacman.d/mirrorlist" 
-                
+                echo "Include = /etc/pacman.d/mirrorlist"
+
                 while true; do
-                    read -p "you wanna do this? yes or no" input
-                    if   [ "$input" == "yes"]; then
+                    read -p "Do you want to do this? yes or no: " input
+                    if [ "$input" == "yes" ]; then
                         sudo nano /etc/pacman.conf
-                        echo  "install starting..."
+                        echo "Installation starting..."
                         sudo pacman -Syyu --
 
-                    elif [ "$input" == "no"]; then
-                        echo "if don't do this you gonna be sorry bro"
+                    elif [ "$input" == "no" ]; then
+                        echo "If you don't do this, you're going to be sorry, bro"
                         break
                     fi
                 done
 
-
             elif [ "$input" == "1" ]; then
-                sudo pacman -S --noconfirm zip unzip p7zip  expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv gst-libav libmad libtheora libmpeg2 wavpack x264 xvidcore libdvdcss  libdvdread  libdvdnav dvd+rw-tools dvdauthor dvgrab lib32-alsa-oss  net-tools tk
+                sudo pacman -S --noconfirm zip unzip p7zip expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv gst-libav libmad libtheora libmpeg2 wavpack x264 xvidcore libdvdcss libdvdread libdvdnav dvd+rw-tools dvdauthor dvgrab lib32-alsa-oss net-tools tk
                 sudo pacman -S --needed --noconfirm giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error
                 sudo pacman -S --needed --noconfirm lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama
                 sudo pacman -S --needed --noconfirm ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader kdialog
@@ -109,8 +105,8 @@ while true; do
                     echo "4 -) irqbalance for cpu"
                     echo "5 -) zram-generator"
 
-                    read -p " | 1 | 2 | :-> " input
-                    if   [ "$input" == "1" ]; then
+                    read -p " | 1 | 2 | 3 | 4 | 5 | :-> " input
+                    if [ "$input" == "1" ]; then
                         sudo pacman -S --noconfirm archlinux-keyring
                         sudo pacman -S --noconfirm arandr gparted conky picom lxappearance lxappearance-obconf ranger cmus dunst nitrogen zathura-pdf-poppler zathura ristretto scrot qbittorrent
 
@@ -138,32 +134,32 @@ while true; do
                             fi
                         done
 
-                    elif [ "$input" == "4"]; then
+                    elif [ "$input" == "4" ]; then
                         sudo pacman -S --noconfirm irqbalance
                         sudo systemctl enable --now irqbalance
 
                     elif [ "$input" == "5" ]; then
                         sudo pacman -Sy --noconfirm zram-generator
-                            sudo cp files/zram-generator.conf /etc/systemd/
-                            systemctl daemon-reload
-                            systemctl start /dev/zram0
-                            zramctl
+                        sudo cp files/zram-generator.conf /etc/systemd/
+                        systemctl daemon-reload
+                        systemctl start /dev/zram0
+                        zramctl
                     fi
                 done
- 
-    
-    # games
+            fi
+        done
+
     elif [ "$input" == "4" ]; then
-        echo "this all programs install with aur yay"
+        echo "All these programs will be installed with AUR helper yay"
         while true; do
-            echo "1 -) wine and gamemode and winetrick"
-            echo "2 -) steam and protontrick and protonup this is gui"
+            echo "1 -) wine and gamemode and winetricks"
+            echo "2 -) steam and protontrick and protonup (GUI)"
             echo "3 -) lutris"
-            echo "4 -) heroic games lancher"
+            echo "4 -) heroic games launcher"
             echo "5 -) finish"
-            
-            read -p " | 1 | 2 | 3 | 4 | :-> " input
-            if   [ "$input" == "1" ]; then
+
+            read -p " | 1 | 2 | 3 | 4 | 5 | :-> " input
+            if [ "$input" == "1" ]; then
                 yay -Sy winetricks-git gamemode lib32-gamemode
 
             elif [ "$input" == "2" ]; then
@@ -179,5 +175,8 @@ while true; do
                 break
             fi
         done
+    else
+        echo "finish"
+        break
     fi
 done
