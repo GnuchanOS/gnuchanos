@@ -5,9 +5,7 @@
 </div>  
 <hr>
 <ul>
-  <li>
-  I left Arch Linux and switched to Debian because every time I installed Arch Linux, I had to download the official new ISO due to a pacman keyring problem. Running 'pacman -Sy archlinux-keyring' did not fix the problem, and 'pacman-keys --init' was not working either. The Arch Linux ISO failed to start and initialize the pacman keyring. I got tired of dealing with this Arch Linux keyring system, so I decided to switch.</li>
-  
+
 </ul>
 
 <br/>
