@@ -8,3 +8,8 @@ makepkg -si
 
 # protontricks
 yay -S rar
+
+
+yay -Sy auto-cpufreq 
+sudo auto-cpufreq --install
+auto-cpufreq --stats
