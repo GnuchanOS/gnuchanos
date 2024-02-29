@@ -8,7 +8,7 @@ import os, shutil
 class pRunner:
     def __init__(self) -> None:
         self.gc = GnuChanGUI(Title="GnuChan Program Timer", Size=(340, 600), resizable=False)
-        Themecolors().GnuChanOS
+        self.gc.Theme()
 
         self.programList = []
         self.ekstraPrograms = []

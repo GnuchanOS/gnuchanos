@@ -6,12 +6,8 @@
 sudo sed -i 's/^#Color/Color/g' /etc/pacman.conf
 sudo sed -i 's/VerbosePkgLists/VerbosePkgLists\nILoveCandy/g' /etc/pacman.conf
 
-mkdir -p ~/.vim/autoload
-curl -fLo ~/.vim/autoload/plug.vim \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo "vim > PlugInstall enter"
-read p
+
 
 ################################################################################################
 echo  "#[multilib]"
@@ -25,20 +21,16 @@ sudo pacman -Syyu --noconfirm
 sudo pacman -S --noconfirm archlinux-keyring
 
 
+
 ################################################################################################
-sudo pacman -S --noconfirm zip unzip p7zip  expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv gst-libav libmad libtheora libmpeg2 wavpack x264 xvidcore libdvdcss  libdvdread  libdvdnav dvd+rw-tools dvdauthor dvgrab lib32-alsa-lib  lib32-alsa-plugins  lib32-libpulse  lib32-alsa-oss  net-tools flac
-sudo pacman -S --noconfirm rsync ntfs-3g flac curl wget
+sudo pacman -S --noconfirm zip unzip p7zip  expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv gst-libav libmad libtheora libmpeg2 wavpack x264 xvidcore libdvdcss  libdvdread  libdvdnav dvd+rw-tools dvdauthor dvgrab lib32-alsa-lib  lib32-alsa-plugins  lib32-libpulse  lib32-alsa-oss  net-tools  
 sudo pacman -S --noconfirm gparted vlc conky leafpad arandr btop jdk-openjdk bchunk
 sudo pacman -S --noconfirm qbittorrent dmenu rofi
 
-# bluetooth
-sudo pacman -Sy bluez blueman bluez-utils
-sudo modprobe btusb
-sudo systemctl enable bluetooth
-sudo systemctl start bluetooth
 
-sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts #japan font
+#sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts #japonca font
 ################################################################################################
+
 
 
 ################################################################################################
@@ -56,13 +48,51 @@ sudo pacman -S --noconfirm irqbalance #don't forger this
 sudo systemctl enable --now irqbalance
 
 
-echo "intel>amd - ucode"; read input
-if [ $input == "intel" ]; then
-    sudo pacman -Sy --noconfirm intel-ucode
-elif [ $input == "amd" ]; then
-    sudo pacman -Sy --noconfirm amd-ucode
-fi
+PS3='Please enter your choice: '
+options=("amd" "intel" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "AMD")
+        echo "you chose AMD"
+            sudo pacman -S --noconfirm amd-ucode
+            break
+            ;;
 
-sudo pacman -S --noconfirm qutebrowser python-adblock
+        "intel")
+        echo "you chose intel"
+            sudo pacman -S --noconfirm intel-ucode
+            break
+            ;;
+
+        "Quit")
+            break
+            ;;
+    esac
+done
+
+
+
+
+
+read -rsn1 -p "install your browser QuteBrowser is default //Press Enter" variable; echo
+
+PS3='Please enter your choice: '
+options=("QuteBrowser" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "QuteBrowser")
+        echo "you choose QuteBrowser"
+        sudo pacman -S --noconfirm qutebrowser
+	    sudo pacman -S --noconfirm python-adblock
+            break
+            ;;
+
+        "Quit")
+            break
+            ;;
+    esac
+done
 
 
