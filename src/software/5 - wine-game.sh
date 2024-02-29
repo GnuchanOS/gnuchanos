@@ -22,4 +22,4 @@ yay -Sy winetricks-git gamemode lib32-gamemode protontricks-git protonup-qt
 
 # github goverlay - for mangohud
 
-winetricks vcrun2008  vcrun2010 vcrun2012 d3dx9 d3dx11_43 dotnet40 dotnet45 dotnet461 dotnet462 dotnet46 dotnet471 dotnet472 dotnet48 mfc42
+#winetricks vcrun2008  vcrun2010 vcrun2012 d3dx9 d3dx11_43 dotnet40 dotnet45 dotnet461 dotnet462 dotnet46 dotnet471 dotnet472 dotnet48 mfc42

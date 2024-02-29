@@ -1,7 +1,8 @@
 #!/bin/bash
 echo "if you see this ## press enter"
 
-pacman -S --noconfirm git 
+pacman -S --noconfirm git
+
 
 ##################################################################################################
 read -rsn1 -p "##### CREATE USER AND GIVE SUDO POWER #########################" variable; echo
@@ -23,13 +24,11 @@ read -rsn1 -p "do not forget it Press Enter" variable; echo
 nano /etc/sudoers
 read -rsn1 -p "SUDO User creation Done!     FINISH : PRESS ENTER" variable; echo
 
-
 read -rsn1 -p "###### Root Password ##############################################" variable; echo
 read -rsn1 -p "You type root password, when login you will enter root and password  Press Enter" variable; echo
 echo "passwd root"
 passwd root
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
-
 
 read -rsn1 -p "###### COMPUTER NAME ##############################################" variable; echo
 echo "this is your computer name press enter"
@@ -40,8 +39,6 @@ echo "$computer_name" >> /etc/hostname
 read -rsn1 -p "$computer_name nice name bro  Press Enter" variable; echo
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
-
-
 
 ##################################################################################################
 read -rsn1 -p "###### SYSTEM LANGUAGE ###########################################" variable; echo
@@ -64,7 +61,6 @@ read -rsn1 -p "grub-install and grub-mkconfig finish PRESS ENTER" variable; echo
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
 
-
 ##################################################################################################
 read -rsn1 -p "###### NETWORK MANAGER #############################################" variable; echo
 
@@ -75,13 +71,12 @@ read -rsn1 -p "Enabled Network Manager PRESS ENTER" variable; echo
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
 
-
 ##################################################################################################
 read -rsn1 -p "########## GRAPHIC DRIVE #########################################" variable; echo
 echo "GPU Driver"
 
 while true; do
-    echo " | amd | intel | nvidia | ati | :> "; read input
+    echo " | input words -> | amd | intel | nvidia | ati | exit |  :> "; read input
     if [ $input == "amd" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa
         break
@@ -91,6 +86,8 @@ while true; do
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps nvidia nvidia-utils
     elif [ $input == "ati" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps xf86-video-ati
+    elif [ $input == "exit" ]; then
+        break
     else
         echo "What??"
     fi
@@ -99,7 +96,6 @@ done
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
 
-
 ##################################################################################################
 read -rsn1 -p "####### Display Manager ##########################################" variable; echo
 sudo pacman -Sy --noconfirm lxdm
@@ -107,20 +103,17 @@ sudo systemctl enable lxdm.service
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
 
-
 ##################################################################################################
 read -rsn1 -p "######## Gui selection ###########################################" variable; echo
 pacman -S --noconfirm qtile
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
 
-
 ##################################################################################################
-read -rsn1 -p "####### TERMİNAL ##############################################" variable; echo
-pacman -S --noconfirm xterm fish
+read -rsn1 -p "####### Extra Programs ##############################################" variable; echo
+pacman -S --noconfirm xterm fish vim qutebrowser
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
-
 
 ##################################################################################################
 echo "first enter this command 1: exit 2: umount /mnt/boot and umount /mnt "
