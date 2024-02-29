@@ -1,1 +1,6 @@
-`ŒµkÖ€5sÒïjó+†G¦NB~ŒÈa‰‡a”£…‰'®—/‰'GËJKkçT$]Ÿ‰•8æqg±¿emÉÐ	¾'Ñå[1i^¿o%7¸{'zO[U¡àÓ*üßse°2;JŒ?Û]ZqÛúÓÌ¢—¹ªü•›“·‘¾M‘¨Ð+<¢óEd#½ëØ:Òø«øÏ^þïš?Îy|÷ßY×EmÍ›}.}™§Yfº¦~<²yƒœ¿æ‰
+tar -vxf cursor.tar
+tar -vxf icon.tar
+sudo rm -r  /usr/share/icons/
+sudo mkdir /usr/share/icons/
+sudo mv GnuChanOS-icons/ /usr/share/icons/
+sudo mv GnuchanCursors/ /usr/share/icons/

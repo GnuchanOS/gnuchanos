@@ -12,5 +12,4 @@ sudo pacman -S tk
 
 
 #PyInstaller tutorial1.py --onefile
-pip install pysimplegui && python -m PySimpleGUI.PySimpleGUI upgrade
 sudo pacman -Sy python-adblock

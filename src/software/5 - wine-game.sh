@@ -19,7 +19,7 @@ yay -Sy winetricks-git gamemode lib32-gamemode protontricks-git protonup-qt
 
 # lutris heroicGames steam
 
-
-# github goverlay - for mangohud
+# steam > PROTON_USE_WINED3D=0 %command%
+# steam > PROTON_USE_WINED3D=1 gamemoderun %command% -gl
 
 winetricks vcrun2008  vcrun2010 vcrun2012 d3dx9 d3dx11_43 dotnet40 dotnet45 dotnet461 dotnet462 dotnet46 dotnet471 dotnet472 dotnet48 mfc42
