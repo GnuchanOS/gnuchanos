@@ -52,7 +52,7 @@ echo "KEYMAP=trq" >> /etc/vconsole.conf
 echo "locale-gen"
 locale-gen
 
-mkinitcpio -p linux-zen
+mkinitcpio -p linux
 read -rsn1 -p "mkinitcpio Completed! Press Enter" variable; echo
 grub-install --recheck /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
