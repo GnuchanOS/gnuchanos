@@ -47,6 +47,9 @@ sudo pacman -S --noconfirm picom     lxappearance lxappearance-obconf       scro
 sudo pacman -S --noconfirm irqbalance #don't forger this
 sudo systemctl enable --now irqbalance
 
+yay -Sy auto-cpufreq
+sudo systemctl enable --now auto-cpufreq
+
 
 PS3='Please enter your choice: '
 options=("amd" "intel" "Quit")
