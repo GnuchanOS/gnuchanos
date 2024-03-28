@@ -2,7 +2,6 @@
 
 echo "if you see this ## press enter"
 
-
 ###################################################################################################
 timedatectl set-ntp true
 hwclock -w

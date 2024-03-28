@@ -3,7 +3,6 @@ echo "if you see this ## press enter"
 
 pacman -S --noconfirm git
 
-
 ##################################################################################################
 read -rsn1 -p "##### CREATE USER AND GIVE SUDO POWER #########################" variable; echo
 read -ranl -p "don't use capital letter press enter PRESS ENTER"
