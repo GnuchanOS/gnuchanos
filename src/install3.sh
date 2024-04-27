@@ -29,3 +29,18 @@ systemctl --user --now enable pipewire pipewire-pulse pipewire-media-session
 echo "fck pulseaudio  | pipewire Completed!   " variable; echo
 read -rsn1 -p "#################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
+
+##################################################################################################
+sudo pacman -S --noconfirm openssh
+sudo systemctl start sshd
+sudo systemctl enable sshd
+##################################################################################################
+
+##################################################################################################
+sudo echo "blacklist nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
+sudo echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
+mkinitcpio -p linux
+sudo reboot
+##################################################################################################
+
+
