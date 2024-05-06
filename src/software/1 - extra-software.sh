@@ -39,10 +39,10 @@ sudo pacman -S --noconfirm picom     lxappearance lxappearance-obconf       scro
 sudo pacman -S --noconfirm irqbalance
 sudo systemctl enable --now irqbalance
 
-sudo pacman -S --noconfirm cpupower
-sudo systemctl enable --now cpupower
-sudo cpupower frequency-set -g ondemand -d 2.3GHz -u 2.3GHz
-sudo cpupower frequency-set --governor performance
+# this is not working
+#sudo pacman -S --noconfirm cpupower
+#sudo systemctl enable --now cpupower
+#sudo cpupower frequency-set --governor performance
 
 
 PS3='Please enter your choice: '
