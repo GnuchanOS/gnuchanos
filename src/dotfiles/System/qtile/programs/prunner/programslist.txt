@@ -1,0 +1,100 @@
+########3D########
+blender
+freecad
+k-3d
+openscad
+sweet home 3d
+art of illusion
+wings 3d
+makehuman
+brl-cad
+natron
+
+########2D########
+gimp
+inkscape
+krita
+mypaint
+pinta
+scribus
+tux paint
+xara xtreme
+vectr
+skencil
+
+########BROWSERS########
+qutebrowser
+firefox
+chromium
+google chrome
+opera
+brave
+vivaldi
+midori
+pale moon
+waterfox
+epiphany
+
+########TEXT EDITOR########
+gedit
+kate
+leafpad
+mousepad
+sublime text
+atom
+visual studio code
+pluma
+notepadqq
+featherpad
+libreoffice
+
+########VIDEO EDITORS########
+kdenlive
+openshot
+shotcut
+pitivi
+davinci resolve
+olive
+cinelerra
+lightworks
+flowblade
+
+########GAME ENGINES########
+Godot Engine
+Unity
+Unreal Engine
+CRYENGINE
+Lumberyard
+Armory
+Defold
+GDevelop
+Panda3D
+Phaser
+
+########game system########
+steam
+lutris
+bottles
+protontrick
+protonup-qt
+winetrick
+
+
+########message programs########
+discord
+
+########sound record/edit########
+audacity
+
+########video record programs########
+simplescreenrecorder
+
+
+########Ekstras########
+pavucontrol
+lxappearance
+gnome-boxes
+drawio
+arandr
+nitrogen
+vlc
