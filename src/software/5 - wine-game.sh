@@ -15,11 +15,11 @@ lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader l
 
 #games
 sudo pacman -S --noconfirm kdialog
-yay -Sy winetricks-git gamemode lib32-gamemode protontricks-git protonup-qt
+yay -Sy  gamemode lib32-gamemode protonup-qt
 
 # lutris heroicGames steam
 
 # steam > PROTON_USE_WINED3D=0 %command%
 # steam > PROTON_USE_WINED3D=1 gamemoderun %command% -gl
 
-#winetricks vcrun2008  vcrun2010 vcrun2012 d3dx9 d3dx11_43 dotnet40 dotnet45 dotnet461 dotnet462 dotnet46 dotnet471 dotnet472 dotnet48 mfc42
+

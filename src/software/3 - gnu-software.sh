@@ -1,4 +1,4 @@
 #!/bin/bash
-sudo pacman -S --noconfirm blender gimp audacity obs-studio
+sudo pacman -Sy --noconfirm gimp audacity krita kdenlive inkscape libreoffice-fresh
 
 yay -S vscodium-bin
