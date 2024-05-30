@@ -19,6 +19,8 @@ sudo pacman -S --noconfirm archlinux-keyring
 
 ################################################################################################
 sudo pacman -S --noconfirm zip unzip p7zip  expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv gst-libav libmad libtheora libmpeg2 wavpack x264 xvidcore libdvdcss  libdvdread  libdvdnav dvd+rw-tools dvdauthor dvgrab lib32-alsa-lib  lib32-alsa-plugins  lib32-libpulse  lib32-alsa-oss  net-tools  
+sudo pacman -Syu pcre pcre2 lib32-pcre lib32-pcre2 util-linux util-linux-libs lib32-util-linux xz lib32-xz
+
 sudo pacman -S --noconfirm gparted vlc conky leafpad arandr btop jdk-openjdk bchunk
 sudo pacman -S --noconfirm qbittorrent dmenu rofi nemo fastfetch make cmake openssh
 
@@ -93,4 +95,5 @@ done
 
 # make nemo default
 xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+
 

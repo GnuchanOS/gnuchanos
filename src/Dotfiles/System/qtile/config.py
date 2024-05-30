@@ -66,11 +66,10 @@ keys = [
     Key([mod], "p", lazy.spawn("pavucontrol")),
     
     # simple programs
-    Key([mod], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/programs/prunner/prunner.py", shell=True)),
+    #Key([mod], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/programs/prunner/prunner.py", shell=True)),
 
     # you can use this program runners
-    #Key([mod], "r", lazy.spawn("rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite")),
-    #Key([mod], "f", lazy.spawn("dmenu_run -i -b -p 'GnuChanOS'  -fn 'Ubuntu Mono:bold:pixelsize=25' -nb '#240046' -nf '#9d4edd' -sf '#9d4edd' -sb '#5a189a' ")),    
+    Key([mod], "f", lazy.spawn("dmenu_run -i -b -p 'GnuChanOS'  -fn 'sans Mono:bold:pixelsize=20' -nb '#240046' -nf '#9d4edd' -sf '#9d4edd' -sb '#5a189a' ")),    
 ]
 #####################################################################################################################
 
@@ -88,6 +87,7 @@ for i in groups:
 #####################################################################################################################
 
 #####################################################################################################################
+border_focus="#9d4edd"
 layouts = [
     layout.Columns(margin=14, border_width=6, border_focus="#9d4edd", border_normal="#240046"),
     #layout.MonadTall(margin=8, border_width=6, border_focus="#08000d", border_normal="#08000d"),
@@ -103,6 +103,14 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 #####################################################################################################################
+
+colors = {
+    "bg": "#f299a5",
+    "darkBg": "#e8849d",
+    "fg": "#ffffff",
+    "grey": "#7e4f54",
+    "darkGrey": "#4f3436",
+}
 
 #####################################################################################################################
 colors = [["#240046", "#240046"], # 0: background color
@@ -196,16 +204,20 @@ bring_front_click = False
 cursor_warp = False
 
 floating_layout = layout.Floating(
-
-float_rules=[
-    *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry')  # GPG key password entry
-]                               )
+	float_rules=[
+	    *layout.Floating.default_float_rules,
+		  # gitk
+		    Match(wm_class='confirmreset'),
+		  # gitk
+		    Match(wm_class='makebranch'),
+		  # gitk
+		    Match(wm_class='maketag'),
+		  # ssh-askpass
+		    Match(wm_class='ssh-askpass'),  
+		  # gitk
+		    Match(title='branchdialog'),
+		  # GPG key password entry  
+            Match(title='pinentry') ])
 #####################################################################################################################
 
 #####################################################################################################################
