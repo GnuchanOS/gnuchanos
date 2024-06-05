@@ -9,3 +9,13 @@ makepkg -si
 # protontricks
 yay -S rar
 yay -S python-librosa gst-plugin-opencv
+
+
+
+
+
+
+
+
+
+
