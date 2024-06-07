@@ -8,17 +8,28 @@
 
 </ul>
 
+<p> in dotfile </p>
 
+<p> SYSTEÖ </p>
+<p> Qtile and Plasma Theme</p>
+<p> lxdm - cursor still black </p>
+<p> Grub and Plymouth Theme </p>
 
-<div align="center"> not for me 
-If you are running Bumblebee with NVIDIA driver, you need to disable power management for the GPU in TLP in order to make Bumblebee control the power of the GPU.
+<p> PROGRAMS </p>
+<p> System GTK Theme </p>
+<p> Blender Theme </p>
+<p> Dunst Theme </p>
+<p> Krita Theme </p>
+<p> Qutebrowser Theme </p>
+<p> VsCodium Theme </p>
+<p> Zathura Theme </p>
 
-Depending on the driver(s) that you are using, blacklist one or more of them, preventing TLP from managing their power state:
+<p> in Terminal APP </p>
+<p> Vim </p>
+<p> Ranger </p>
+<p> Cmus </p>
+<p> irssi </p>
 
-/etc/tlp.conf
-RUNTIME_PM_DRIVER_DENYLIST="nouveau nvidia"
-</div>
-
-
+<p>  </p>
 <br/>
 

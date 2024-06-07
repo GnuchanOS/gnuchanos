@@ -6,14 +6,10 @@ sudo localectl --no-convert set-x11-keymap tr
 read -rsn1 -p "###### LOCAL TIME #################################################" variable; echo
 read -rsn1 -p "Select Time Zone  Europe/Istanbul My zone //Press Enter" variable; echo
 
-echo "timedatectl list-timezones"
-timedatectl list-timezones
-read -rsn1 -p "Dont Forget Time Zone :----> "
-read -p 'Enter Time Zone Name : ' timezone
-timedatectl set-timezone $timezone
-timedatectl set-local-rtc 0
-timedatectl set-ntp true 
-timedatectl status
+sudo timedatectl set-timezone Europe/Istanbul
+sudo timedatectl set-local-rtc 0
+sudo timedatectl set-ntp true 
+sudo timedatectl status
 sudo locale-gen
 
 read -rsn1 -p "Timezone Completed! //Press Enter" variable; echo
@@ -40,7 +36,6 @@ sudo systemctl enable sshd
 sudo echo "blacklist nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
 sudo echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
 mkinitcpio -p linux
-sudo reboot
 ##################################################################################################
 
 

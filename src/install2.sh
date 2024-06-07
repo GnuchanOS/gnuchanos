@@ -77,16 +77,19 @@ echo "GPU Driver"
 while true; do
     echo " | input words -> | amd | intel | nvidia | ati | exit |  :> "; read input
     if [ $input == "amd" ]; then
-        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa
+        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-amdgpu xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
         break
     elif [ $input == "intel" ]; then
-        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-intel
+        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-intel xf86-input-libinput vulkan-intel
         break
     elif [ $input == "nvidia" ]; then
-        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps nvidia nvidia-utils
+        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps nvidia nvidia-utils nvidia-settings nvidia-dkms libglvnd vulkan-icd-loader
+        pacman -S --nocomfirm xf86-input-libinput xf86-input-evdev xf86-video-vesa
+        mkinitcpio -P
+        nvidia-xconfig
         break
     elif [ $input == "ati" ]; then
-        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps xf86-video-ati
+        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-ati xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
         break
     elif [ $input == "exit" ]; then
         break
@@ -100,8 +103,19 @@ read -rsn1 -p "##################### FINISH : PRESS ENTER ######################
 
 ##################################################################################################
 read -rsn1 -p "####### Display Manager ##########################################" variable; echo
-sudo pacman -Sy --noconfirm lxdm
-sudo systemctl enable lxdm.service
+while true; do
+    echo " | Display Manager -> | ly | lxdm | :> ";input
+    if [ $input == "ly" ]; then
+        sudo pacman -Sy ly 
+        sudo systemctl enable ly.service
+        break
+    elif [ $input == "lxdm" ]; then
+        sudo pacman -Sy --noconfirm lxdm
+        sudo systemctl enable lxdm.service
+        break
+    else echo "What?"
+    fi
+done
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
 
@@ -116,6 +130,8 @@ read -rsn1 -p "####### Extra Programs ##########################################
 pacman -S --noconfirm xterm fish vim qutebrowser
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
+
+mkinitcpio -P
 
 ##################################################################################################
 echo "first enter this command 1: exit 2: umount /mnt/boot and umount /mnt "
