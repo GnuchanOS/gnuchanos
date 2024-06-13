@@ -3,6 +3,7 @@
   "telemetry.telemetryLevel": "off",
   
   "editor.hover.enabled": false,
+  "workbench.startupEditor": "none",
 
   "[python]": {
     "editor.formatOnType": true

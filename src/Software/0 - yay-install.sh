@@ -7,7 +7,7 @@ cd yay-bin
 makepkg -si
 
 # protontricks
-yay -S rar
+yay -S rar irssi
 yay -S python-librosa gst-plugin-opencv
 
 

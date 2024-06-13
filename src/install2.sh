@@ -86,7 +86,7 @@ while true; do
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps nvidia nvidia-utils nvidia-settings nvidia-dkms libglvnd vulkan-icd-loader
         pacman -S --nocomfirm xf86-input-libinput xf86-input-evdev xf86-video-vesa
         mkinitcpio -P
-        nvidia-xconfig
+        echo "use this later -> nvidia-xconfig"
         break
     elif [ $input == "ati" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-ati xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
@@ -104,7 +104,7 @@ read -rsn1 -p "##################### FINISH : PRESS ENTER ######################
 ##################################################################################################
 read -rsn1 -p "####### Display Manager ##########################################" variable; echo
 while true; do
-    echo " | Display Manager -> | ly | lxdm | :> ";input
+    echo " | Display Manager -> | ly | lxdm | :> "; read input
     if [ $input == "ly" ]; then
         sudo pacman -Sy ly 
         sudo systemctl enable ly.service

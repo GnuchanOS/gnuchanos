@@ -4,10 +4,10 @@
 # vulkan-intel lib32-vulkan-intel 
 sudo pacman -S --needed lib32-mesa vulkan-icd-loader lib32-vulkan-icd-loader
 
-mgba colors
-510087|1d0031|2a0061|1f0047
-4b008a|260046|400094|30006f
-8a00ff|5700a0|6300e4|4f00b5
+# mgba colors
+# 510087|1d0031|2a0061|1f0047
+# 4b008a|260046|400094|30006f
+# 8a00ff|5700a0|6300e4|4f00b5
 
 
 # wine
@@ -24,11 +24,8 @@ sudo pacman -S --noconfirm kdialog
 yay -Sy  gamemode lib32-gamemode protonup-qt mangohud lib32-mangohud 
 
 
-1024x768 -> 1024x655
-
-optirun nvidia-settings -c :8 // nvidia settings only works with but i can't change settings
-
-winetricks ddr=gdi
+#1024x768 -> 1024x655
+#winetricks ddr=gdi
 
 WINEPREFIX=~/.wine WINEARCH=win32 wine winecfg
 WINEPREFIX=~/.wine64 WINEARCH=win64 wine winecfg
@@ -41,11 +38,13 @@ echo "WINEPREFIX=~/.wine64 winecfg"
 echo "WINEPREFIX=~/.wine64 winetricks"
 echo "WINEPREFIX=~/.wine64 wine64" # or wine for 32bit
 
-mangohud --dlsym # for opengl
-vblank_mode=0 primusrun gamemoderun mangohud --dlsym WINEPREFIX=/home/archkubi/.wine/ wine falloutwHR.exe
+#mangohud --dlsym # for opengl
+gamemoderun mangohud --dlsym WINEPREFIX=/home/archkubi/.wine/ wine falloutwHR.exe
 gamemoderun mangohud --dlsym WINEPREFIX=/home/archkubi/.wine64/ wine falloutwHR.exe
-vblank_mode=0 primusrun gamemoderun mangohud --dlsym %command%
+gamemoderun mangohud --dlsym %command%
 
+#Start Minecraft
+gamemoderun mangohud --dlsym java -jar TLauncher.jar
 
 
 # lutris heroicGames steam
