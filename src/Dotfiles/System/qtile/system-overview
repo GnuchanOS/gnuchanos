@@ -21,11 +21,11 @@ conky.config = {
 											-- middle-left,middle-middle,middle-right,none
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 950,									-- pixels between right or left border
-	gap_y = 75,									-- pixels between bottom or left border
+	gap_x = 690,										-- pixels between right or left border
+	gap_y = 55,											-- pixels between bottom or left border
 	minimum_height = 200,								-- minimum height of window
 	minimum_width = 280,								-- minimum height of window
-	maximum_width = 280,								-- maximum height of window
+	maximum_width = 380,								-- maximum height of window
 
 	--Graphical
 
@@ -89,18 +89,24 @@ conky.config = {
 };
 
 
-
-
-
 conky.text = [[
 ${color2}${alignc}Software List${color}
 ${color5}${hr}${color}
-${color4}[s]+[return]    terminal   ${color}
-${color4} | Vim    - Text Editor    ${color}
-${color4} | Ranger - File Manager   ${color}
-${color4} | Irssi  - IRC            ${color}
-${color4} | Cmus   - Music Player   ${color}
-${color4}[S]+[R]         Program Runner${color}
+${color4}[S]+[S] Screen Shoot ${color}
+${color4}----| Python Programs ${color}
+${color4}[S]+[T] Simple Timer ${color}
+${color4}[S]+[C] Simple Calculator ${color}
+${color4}[S]+[SHIFT]+[T] Simple Text Editor ${color}
+${color4}[S]+[R] Simple Program Runner ${color}
+${color4}[S]+[I] Simple Image Viewer ${color}
+${color4}[S]+[M] Simple Music Player ${color}
+${color4}[S]+[V] Simple Video Player ${color}
+${color4}[S]+[SHIFT]+[R] Life Stream And Record ${color}
+${color4}[S]+[SHIFT]+[W] Wine Container System ${color}
+${color4}[S]+[SHIFT]+[V] Mp4 Convert To Mp3 ${color}
+${color4}[S]+[SHIFT]+[RETURN] Simple Terminal ${color}
+${color4}----| Python Programs ${color}
+${color4}[s]+[Return] terminal  ${color}
 ${color5}${hr}${color}
 ${color4} LibreOffice  ${color}
 ${color4} Gimp/Krita/Inkscape  ${color}

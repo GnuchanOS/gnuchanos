@@ -10,12 +10,5 @@ makepkg -si
 yay -S rar irssi
 yay -S python-librosa gst-plugin-opencv
 
-
-
-
-
-
-
-
-
-
+#  if gpu-screen-recorder broke after update use this  --rebuild
+yay -S gpu-screen-recorder --rebuild

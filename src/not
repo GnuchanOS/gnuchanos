@@ -1,0 +1,63 @@
+gelicek video konseptleri
+	-: Python Dersleri # Örnekler ile
+	-: Blender 101
+	-: C 101
+	-: Vlog
+
+
+python:
+	0: str,int,bool
+		0: Str
+			| STRTEXT = "Fck The World"
+			| [0:12:1]
+			| .upper() / .lower() / .capitalize() / .replace("old", "new") / .count('A')
+			| str(number) + " String"
+			| text = "Name:%s Age:%d" % (name, age)
+			| text = "Name:{} Age:{}".format(name, age)
+			| text = f"Name:{name} Age:{age}"
+		1: int
+			a = 10
+		2: float
+			b = 10.500
+			b = round(b, 2)
+	1: str(), int(), float()
+	2: matematik ve += -= /=
+	3: ==, != , <> <= >=, in | not in
+	4: and or, true false
+	5: list
+		a = []
+			.append("")
+			.insert(1, "")
+			.remove("")
+			.pop(1)
+	6: tuple
+		a = ()
+	7: dict
+		a = {
+			"ABC":100,
+			'A':300,
+			'C':{ 'Sub':312}
+		}
+		a["ABC"] or .get("ABC")
+		a["A"] = 250 or a["new"] = "this is new"
+		del a["ABC"]
+		"key":"value"
+		for key, value in a.items() > 2 value return
+	8: for and while
+		for i in listName
+		for i in range(0, 10)
+	9: func
+		return func
+		normal func
+	10: class
+		class df:
+			def __init__(self):
+				pass
+
+# auto volume down problem
+	Disable auto adjusting of gain on mic:
+	Edit as root: sudo editor /usr/share/pulseaudio/alsa-mixer/paths/analog-input-internal-mic.conf
+	Edit as root: sudo editor /usr/share/pulseaudio/alsa-mixer/paths/analog-input-mic.conf
+	Under "[Element Internal Mic Boost]" set "volume" to "zero".
+	Under "[Element Int Mic Boost]" set "volume" to "zero".
+	Under "[Element Mic Boost]" set "volume" to "zero".

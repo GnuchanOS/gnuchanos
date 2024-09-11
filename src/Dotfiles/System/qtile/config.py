@@ -21,7 +21,7 @@ from libqtile import qtile
 
 #############################################
 mod = "mod4"
-terminal = guess_terminal("cool-retro-term")
+terminal = guess_terminal("xterm")
 user_home = os.path.expanduser("~")
 #############################################
 
@@ -57,25 +57,36 @@ keys = [
     # close window
     Key([mod], "w", lazy.window.kill()),
 
-    Key([mod], "s", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/screenShoot.py")),
-    Key([mod], "d", lazy.spawn("scrot -a 0,0,1024,768")),
-    Key([mod, "shift"], "d", lazy.spawn("scrot -s")),
-
     # ekstra
     Key([mod, "shift"], "z", lazy.spawn("lxappearance")),
     Key([mod], "l", lazy.spawn("leafpad")),
     Key([mod], "p", lazy.spawn("pavucontrol")),
-    
-    # simple programs
-    #Key([mod], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/programs/prunner/prunner.py", shell=True)),
+
+    # No Gui
+    Key([mod], "s", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/screenShoot.py")),
+    Key([mod, "shift"], "s", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/screenShoot_mouse.py", shell=True)),
+
+    # GnuChanGUI
+    Key([mod], "t", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_0:SimpleTimer.py")),
+    Key([mod], "c", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_1:SimpleCalculator.py")),
+    Key([mod, "shift"], "t", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_2:SimpleTextEditor.py")),
+    Key([mod], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_3:SimpleProgramRunner.py")),
+    Key([mod], "i", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_4:SimpleImageViever.py")),
+    Key([mod], "m", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_5:SimpleMusicPlayer.py")),
+    Key([mod], "v", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_6:SimpleVideoPlayer.py")),
+    Key([mod, "shift"], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_7:SimpleLSVR.py")),
+    Key([mod, "shift"], "w", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_8:SimpleWineManager.py")),
+    Key([mod, "shift"], "v", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_9:SimpleVideoToSound.py")),
+    Key([mod, "shift"], "Return", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_10:SimpleTerminalEmulator.py")),
+
 
     # you can use this program runners
-    Key([mod], "f", lazy.spawn("dmenu_run -i -b -p 'GnuChanOS'  -fn 'sans Mono:bold:pixelsize=20' -nb '#240046' -nf '#9d4edd' -sf '#9d4edd' -sb '#5a189a' ")),    
+    Key( [mod], "f", lazy.spawn("dmenu_run -i -b -p 'GnuChanOS'  -fn 'Sans Mono:bold:pixelsize=12' -nb '#240046' -nf '#9d4edd' -sf '#9d4edd' -sb '#5a189a' ") ),
 ]
 #####################################################################################################################
 
 #####################################################################################################################
-groups = [Group(i) for i in "1234567890"]
+groups = [Group(i) for i in "12345670"]
 
 for i in groups:
     keys.extend([
@@ -122,8 +133,7 @@ screens = [
 #wallpaper="~/.config/qtile/img/wallpaper.jpg",
 #wallpaper_mode="scale",
 
-top=bar.Bar(
-[
+top=bar.Bar([
     widget.TextBox(background = colors[0], text=":"),
     widget.Image(filename = "~/.config/qtile/img/ram.png", background = colors[0]),
 
@@ -149,8 +159,7 @@ top=bar.Bar(
             
                        ),
 
-bottom=bar.Bar(
-[
+bottom=bar.Bar([
      widget.TextBox(background = colors[0], text=":"),
     widget.Spacer(background = colors[1]),
 

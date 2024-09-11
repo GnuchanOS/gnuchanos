@@ -4,7 +4,7 @@
 xset -dpms
 xset s off
 
-# this is good for now
+# 
 picom --config ~/.config/qtile/picom.conf &
 
 # display size with vga and main display for laptop
@@ -16,5 +16,11 @@ killall conky
 
 # default app
 xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
+xdg-mime default xterm-ranger.desktop inode/directory
 
 
+
+
+
+
+dunst & # Alert

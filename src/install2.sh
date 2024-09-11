@@ -21,6 +21,7 @@ echo   "##"
 
 read -rsn1 -p "do not forget it Press Enter" variable; echo
 nano /etc/sudoers
+# echo "$userName ALL=(ALL) ALL" >> /etc/sudoers  -- maybe
 read -rsn1 -p "SUDO User creation Done!     FINISH : PRESS ENTER" variable; echo
 
 read -rsn1 -p "###### Root Password ##############################################" variable; echo
@@ -78,9 +79,11 @@ while true; do
     echo " | input words -> | amd | intel | nvidia | ati | exit |  :> "; read input
     if [ $input == "amd" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-amdgpu xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
+        mkinitcpio -P
         break
     elif [ $input == "intel" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-intel xf86-input-libinput vulkan-intel
+        mkinitcpio -P
         break
     elif [ $input == "nvidia" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps nvidia nvidia-utils nvidia-settings nvidia-dkms libglvnd vulkan-icd-loader
@@ -90,6 +93,7 @@ while true; do
         break
     elif [ $input == "ati" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-ati xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
+        mkinitcpio -P
         break
     elif [ $input == "exit" ]; then
         break
