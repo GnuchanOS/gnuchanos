@@ -58,12 +58,15 @@ set wildignore+=*.png,*.jpg,*.gif
 vnoremap u <Nop>
 nnoremap s <Nop>
 nnoremap r <Nop>
+nnoremap o <Nop>
 nnoremap <.> <Nop>
 nnoremap <,> <Nop> 
 nnoremap " <Nop>
 nnoremap ' <Nop>
 nnoremap - <Nop>
 nnoremap & <Nop>
+nnoremap . <Nop>
+nnoremap ç <Nop>
 
 " yank copy and remove something problem
 nnoremap d "_d
@@ -81,7 +84,7 @@ set shortmess+=c
 inoremap <C-Spaced> <C-x><C-o>
 
 " 
-inoremap <expr> ) pumvisible() ? "\<C-y>)\<C-x>\<C-o>" : "\<C-x><C-o>"
+" inoremap <expr> ) pumvisible() ? "\<C-y>)\<C-x>\<C-o>" : "\<C-x><C-o>"
 
 " 
 inoremap <silent> <Esc> <Esc>:pclose<CR>
@@ -135,7 +138,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'yassinebridi/vim-purpura'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-call plug#end()
+
+    call plug#end()
 
 " Theme
 colorscheme purpura
@@ -143,3 +147,5 @@ let g:crystalline_theme = 'purpura'
 set background=dark
 highlight CursorLine guibg=#6F00FF ctermbg=white
 
+
+" Terminal In ViPlugm

@@ -1,4 +1,7 @@
 ! refrest xterm -> xrdb -merge ~/.Xresources
+
+xterm*loginShell: true
+xterm*saveLines: 4096
 xterm*background: #150129
 xterm*foreground: #9019ff
 
@@ -20,33 +23,21 @@ xterm*color13: #ff79c6
 xterm*color14: #8be9fd
 xterm*color15: #ffffff
 
-! font
+! Font settings
 xterm*faceName: Sans Mono:antialias=true:pixelsize=10
 
-! Scrool
-xterm*geometry: 80x25
-*scrollBar: 0
-*saveLines: 12288
-*scrollTtyOutput: false
-*scrollWithBuffer: true
+! Scroll settings
+xterm*ScrollBar: true
 xterm*rightScrollBar: true
 
 ! Select Text Color
 xterm*highlightColor: #5a189a
+
 ! UTF-8 Support
 xterm*locale: true
 xterm*utf8: 2
 
-
 ! Copy/Paste
 XTerm*vt100.translations: #override \
-    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
-    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
-
-
-
-
-
-
-
-
+    Shift Ctrl <Key>C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key>V: insert-selection(CLIPBOARD)

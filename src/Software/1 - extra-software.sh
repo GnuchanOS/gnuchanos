@@ -25,7 +25,7 @@ sudo pacman -S --noconfirm xsel
 
 sudo pacman -S --noconfirm pcre pcre2 lib32-pcre lib32-pcre2 util-linux util-linux-libs lib32-util-linux xz lib32-xz
 sudo pacman -S --noconfirm gparted vlc conky leafpad arandr btop jdk-openjdk bchunk
-sudo pacman -S --noconfirm qbittorrent dmenu rofi nemo fastfetch make cmake openssh timidity
+sudo pacman -S --noconfirm qbittorrent dmenu rofi fastfetch make cmake openssh timidity
 #sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts #japonca font
 
 echo "sudo pacman -Sy lib32-libva-intel-driver libva-intel-driver libva-mesa-driver libva-nvidia-driver"
@@ -33,7 +33,7 @@ echo "this is for record video in gpu-screen-recorder-gtk"
 ################################################################################
 
 ################################################################################
-sudo pacman -S --noconfirm cool-retro-term ranger  cmus  dunst  nitrogen
+sudo pacman -S --noconfirm ranger  cmus  dunst  nitrogen
 sudo pacman -S --noconfirm zathura zathura-pdf-poppler ristretto
 sudo pacman -S --noconfirm lxappearance lxappearance-obconf scrot
 ################################################################################
@@ -85,6 +85,3 @@ while true; do
     fi
 done
 ################################################################################
-
-# make nemo default
-xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search

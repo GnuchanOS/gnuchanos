@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=XTerm Ranger
-Exec=x-terminal-emulator -e ranger
-Terminal=true
-Type=Application
-MimeType=inode/directory;
