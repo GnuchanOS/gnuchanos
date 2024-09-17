@@ -17,6 +17,22 @@ sudo pacman -Syyu --noconfirm
 ################################################################################
 sudo pacman -S --noconfirm archlinux-keyring
 
+
+
+# XInput
+sudo pacman -Syu xorg-xinput
+
+# xinput list
+# xinput list-props <device_id>
+
+
+
+# Disable
+#xinput set-prop 11 "libinput Accel Speed" 0
+# Enable
+#xinput set-prop 11 "libinput Accel Profile Enabled" 0, 1
+
+
 ################################################################################
 sudo pacman -S --noconfirm zip unzip p7zip  expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv 
 sudo pacman -S --noconfirm gst-libav libmad libtheora libmpeg2 wavpack x264 xvidcore libdvdcss  libdvdread  libdvdnav dvd+rw-tools dvdauthor dvgrab 
