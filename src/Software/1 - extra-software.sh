@@ -17,16 +17,11 @@ sudo pacman -Syyu --noconfirm
 ################################################################################
 sudo pacman -S --noconfirm archlinux-keyring
 
-
-
 # XInput
 sudo pacman -Syu xorg-xinput
 
 # xinput list
 # xinput list-props <device_id>
-
-
-
 # Disable
 #xinput set-prop 11 "libinput Accel Speed" 0
 # Enable
