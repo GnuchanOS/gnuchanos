@@ -108,13 +108,6 @@ ${color4}[S]+[SHIFT]+[RETURN] Simple Terminal ${color}
 ${color4}----| Python Programs ${color}
 ${color4}[s]+[Return] terminal  ${color}
 ${color5}${hr}${color}
-${color4} LibreOffice  ${color}
-${color4} Gimp/Krita/Inkscape  ${color}
-${color4} Audacity/Kdenlive ${color}
-${color4} Audacious ${color}
-${color4} HeroicGL/Steam/Lutris ${color}
-${color4} RetroArch ${color}
-${color5}${hr}${color}
 ${color4}[S]+[CTRL]+[Q]  Stop Qtile${color}
 ${color4}[S]+[W]         Stop Programs${color}
 ${color5}${hr}${color}

@@ -4,7 +4,7 @@
 xset -dpms
 xset s off
 
-killall picom
+#killall picom
 picom --config ~/.config/qtile/picom.conf &
 
 # display size with vga and main display for laptop

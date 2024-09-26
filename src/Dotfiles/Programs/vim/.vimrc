@@ -5,7 +5,6 @@ filetype off " required
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let NERDTreeShowHidden=0
-
 filetype plugin indent on
 " Basic Settings
 set number
@@ -67,8 +66,11 @@ nnoremap - <Nop>
 nnoremap & <Nop>
 nnoremap . <Nop>
 nnoremap ç <Nop>
+nnoremap * <Nop>
 
-" yank copy and remove something problem
+noremap <M-{> <nop>
+noremap <M-}> <nop>
+
 nnoremap d "_d
 nnoremap D "_D
 nnoremap c "_c
@@ -84,7 +86,8 @@ set shortmess+=c
 inoremap <C-Spaced> <C-x><C-o>
 
 " 
-" inoremap <expr> ) pumvisible() ? "\<C-y>)\<C-x>\<C-o>" : "\<C-x><C-o>"
+command! W w
+
 
 " 
 inoremap <silent> <Esc> <Esc>:pclose<CR>
@@ -139,7 +142,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
-    call plug#end()
+call plug#end()
 
 " Theme
 colorscheme purpura
