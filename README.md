@@ -2,7 +2,7 @@
 </div>
 
 <div align="center">This is Dream Gnu/Linux Distro.. Maybe One Day Become Real</div> 
-<div align="center"> GnuChanGUI 'It's old pysimplegui base lib <a href="https://www.github.com/gnuchanos/gnuchangui" target="_blank">Click To Github Page!</a></div>
+<div align="center"> GnuChanGUI It's old pysimplegui base lib <a href="https://www.github.com/gnuchanos/gnuchangui" target="_blank">Click To Github Page!</a></div>
 <hr>
 <ul>
 

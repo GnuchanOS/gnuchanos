@@ -1,2 +1,61 @@
-Invalid argument '/home/archkubi/Videos/es_2024-9-19_6-49-54.mkv'
-usage: gpu-screen-recorder -w <window_id|monitor|focused|portal> [-c <container_format>] [-s WxH] -f <fps> [-a <audio_input>] [-q <quality>] [-r <replay_buffer_size_sec>] [-k h264|hevc|av1|vp8|vp9|hevc_hdr|av1_hdr|hevc_10bit|av1_10bit] [-ac aac|opus|flac] [-ab <bitrate>] [-oc yes|no] [-fm cfr|vfr|content] [-bm auto|qp|vbr] [-cr limited|full] [-df yes|no] [-sc <script_path>] [-cursor yes|no] [-keyint <value>] [-restore-portal-session yes|no] [-portal-session-token-filepath filepath] [-encoder gpu|cpu] [-o <output_file>] [-v yes|no] [--version] [-h|--help]
+gamemodeauto: 
+gamemodeauto: 
+gamemodeauto: 
+gamemodeauto: 
+002c:fixme:winediag:loader_init wine-staging 9.8 is a testing version containing experimental patches.
+002c:fixme:winediag:loader_init Please mention your exact version when filing bug reports on winehq.org.
+Xlib:  extension "NV-GLX" missing on display ":0".
+[2024-09-26 16:21:57.813] [MANGOHUD] [error] [inject_glx.cpp:49] Failed to get function 'glXQueryCurrentRendererIntegerMESA'
+[2024-09-26 16:21:57.989] [MANGOHUD] [error] [nvml.cpp:75] nvmlDeviceGetUtilizationRates failed
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+011c:err:system:NtUserChangeDisplaySettings Changing (null) display settings returned -2.
+011c:err:system:NtUserChangeDisplaySettings Changing (null) display settings returned -2.
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+011c:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+Xlib:  extension "NV-GLX" missing on display ":0".
+[2024-09-26 16:22:02.724] [MANGOHUD] [error] [nvml.cpp:75] nvmlDeviceGetUtilizationRates failed
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+011c:fixme:file:NtLockFile I/O completion on lock not implemented yet
+011c:err:x11drv:xinerama_get_fullscreen_monitors Failed to get xinerama fullscreen monitor indices.
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+Xlib:  extension "NV-GLX" missing on display ":0".
+gamemodeauto: 

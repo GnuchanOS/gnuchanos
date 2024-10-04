@@ -1,5 +1,6 @@
 set nocompatible " be iMproved, required
 filetype off " required
+autocmd FileType c,cpp setlocal noautoindent
 
 " Ekstra settings
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -54,10 +55,6 @@ set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 
 " Disable 'u' Key in Visual Mode
-vnoremap u <Nop>
-nnoremap s <Nop>
-nnoremap r <Nop>
-nnoremap o <Nop>
 nnoremap <.> <Nop>
 nnoremap <,> <Nop> 
 nnoremap " <Nop>
@@ -65,11 +62,26 @@ nnoremap ' <Nop>
 nnoremap - <Nop>
 nnoremap & <Nop>
 nnoremap . <Nop>
-nnoremap ç <Nop>
 nnoremap * <Nop>
+nnoremap { <Nop>
+nnoremap } <Nop>
+nnoremap [ <Nop>
+nnoremap ] <Nop>
 
-noremap <M-{> <nop>
-noremap <M-}> <nop>
+nnoremap h  <Nop>
+nnoremap j  <Nop>
+nnoremap k  <Nop>
+nnoremap l  <Nop>
+nnoremap e <Nop>
+nnoremap w <Nop>
+nnoremap ç <Nop>
+vnoremap u <Nop>
+nnoremap s <Nop>
+nnoremap r <Nop>
+nnoremap o <Nop>
+nnoremap a <Nop
+
+nnoremap <C-space> <Nop>
 
 nnoremap d "_d
 nnoremap D "_D
@@ -99,7 +111,6 @@ nnoremap <C-w> :split<CR> " Split Horizontal
 nnoremap <C-n> :NERDTreeToggle<CR> " Open Nerd Tree
 
 " Key Mappings
-nnoremap <C-s> :w<CR>  " Save with Ctrl + s
 nnoremap <C-q> :q!<CR>  " Quit with Ctrl + q
 nnoremap <C-t> :tabnew<CR>  " Open new tab with Ctrl + t
 
@@ -147,8 +158,7 @@ call plug#end()
 " Theme
 colorscheme purpura
 let g:crystalline_theme = 'purpura'
-set background=dark
-highlight CursorLine guibg=#6F00FF ctermbg=white
+highlight CursorLine guibg=#4b0e6e ctermbg=white
 
 
 " Terminal In ViPlugm

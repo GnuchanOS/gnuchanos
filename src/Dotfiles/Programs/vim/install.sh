@@ -6,3 +6,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 vim +PlugInstall +qall
 cd ~/.vim/plugged/YouCompleteMe
 python3 install.py --clangd-completer
+
+# for xterm
+echo "stty erase ^H" >> ~/.bashrc
+echo "fish" >> ~/.bashrc
+
+
+

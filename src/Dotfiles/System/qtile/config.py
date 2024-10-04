@@ -84,7 +84,7 @@ keys = [
 ]
 
 # Top Bar Group Settings Max Group and Switch Window to Diffret Work group
-groups = [Group(i) for i in "12345"]
+groups = [Group(i) for i in "1234567890"]
 for i in groups:
     keys.extend([
        Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
@@ -145,6 +145,9 @@ screens = [ Screen(
         widget.Spacer(background = colors[1]),
         widget.TextBox(background = colors[0], text=":"),
     ], 16, background = colors[0], margin=[5, 5, 5, 5] ),
+
+
+
 )]
 
 # just click event
