@@ -152,7 +152,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'yassinebridi/vim-purpura'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-
 call plug#end()
 
 " Theme
@@ -160,5 +159,3 @@ colorscheme purpura
 let g:crystalline_theme = 'purpura'
 highlight CursorLine guibg=#4b0e6e ctermbg=white
 
-
-" Terminal In ViPlugm

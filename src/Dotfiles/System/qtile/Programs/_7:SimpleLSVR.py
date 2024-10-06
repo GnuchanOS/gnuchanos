@@ -110,7 +110,7 @@ if __name__ == "__main__":
     _now = datetime.now()
 
     gc.window["rtmp"].update("rtmp://live.restream.io/live")
-    gc.window["mID"].update("VGA-1")
+    gc.window["mID"].update("VGA1")
     gc.window["mic"].update(_mic)
     gc.window["desk"].update(_desktop)
 
@@ -192,7 +192,7 @@ if __name__ == "__main__":
         global _second, _minute, _hour, _Start, _sec
         if _Start:
             if _second < 60:
-                _second += 1 * 0.1
+                _second += gc.dt
             else:
                 if _minute != 60:
                     _minute += 1
