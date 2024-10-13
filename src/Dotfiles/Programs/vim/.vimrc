@@ -79,7 +79,8 @@ vnoremap u <Nop>
 nnoremap s <Nop>
 nnoremap r <Nop>
 nnoremap o <Nop>
-nnoremap a <Nop
+nnoremap a <Nop>
+nnoremap b <Nop>
 
 nnoremap <C-space> <Nop>
 
@@ -90,6 +91,11 @@ nnoremap C "_C
 
 " Disable Ctrl+S
 nnoremap <C-s> <Nop>
+nnoremap <S-k> <Nop>
+nnoremap <S-j> <Nop>
+nnoremap <S-l> <Nop>
+nnoremap <S-h> <Nop>
+
 
 " YouCompleteMe
 set omnifunc=syntaxcomplete#Complete
