@@ -8,13 +8,6 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
+stty erase ^H
 fish
 
-
-function setgov ()
-{
-     for i in {0..7}; 
-     do 
-         sudo  cpufreq-set -c $i -g $1; # run cpufreq-set with root
-     done
-}

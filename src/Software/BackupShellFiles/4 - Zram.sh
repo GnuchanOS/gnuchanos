@@ -6,10 +6,6 @@ sudo pacman -Sy --noconfirm zram-generator
 sudo cp files/zram-generator.conf /etc/systemd/
 
 
-# [zram0]
-# zram-size = ram
-# compression-algorithm=lz4
-
 systemctl daemon-reload
 systemctl start /dev/zram0
 

@@ -24,7 +24,7 @@ xterm*color14: #8be9fd
 xterm*color15: #ffffff
 
 ! Font settings
-xterm*faceName: Sans Mono:antialias=true:pixelsize=10
+xterm*faceName: Sans :antialias=true:pixelsize=10
 
 ! Scroll settings
 xterm*ScrollBar: true

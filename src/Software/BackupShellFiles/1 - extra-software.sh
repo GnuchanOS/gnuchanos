@@ -20,13 +20,6 @@ sudo pacman -S --noconfirm archlinux-keyring
 # XInput
 sudo pacman -Syu xorg-xinput
 
-# xinput list
-# xinput list-props <device_id>
-# Disable
-#xinput set-prop 11 "libinput Accel Speed" 0
-# Enable
-#xinput set-prop 11 "libinput Accel Profile Enabled" 0, 1
-
 
 ################################################################################
 sudo pacman -S --noconfirm zip unzip p7zip  expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv 
@@ -53,7 +46,7 @@ sudo pacman -S --noconfirm lxappearance lxappearance-obconf scrot
 sudo pacman -S --noconfirm irqbalance
 sudo systemctl enable --now irqbalance
 
-sudo pacman -S --noconfirm tlp
+sudo pacman -S --noconfirm tlp tlpui
 sudo systemctl enable tlp --now
 
 sudo pacman -S --noconfirm cpupower

@@ -13,7 +13,7 @@ lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32
 
 #games
 sudo pacman -S --noconfirm kdialog
-yay -Sy  gamemode lib32-gamemode protonup-qt mangohud lib32-mangohud 
+yay -Sy  gamemode lib32-gamemode mangohud lib32-mangohud 
 
 #1024x768 -> 1024x655
 
@@ -33,8 +33,6 @@ echo "WINEPREFIX=~/.wine64 wine64" # or wine for 32bit
 # for tf2 -> in console -> tf_time_loading_item_panels 0.0005
 
 #Start Minecraft
-#gamemoderun mangohud --dlsym java -jar TLauncher.jar
-
 #primusrun gamemoderun mangohud --dlsym %command% 
 
 # lutris heroicGames steam
