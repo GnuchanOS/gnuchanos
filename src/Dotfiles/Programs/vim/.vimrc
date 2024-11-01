@@ -2,58 +2,6 @@ set nocompatible " be iMproved, required
 filetype off " required
 autocmd FileType c,cpp setlocal noautoindent
 
-" Ekstra settings
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-let NERDTreeShowHidden=0
-filetype plugin indent on
-" Basic Settings
-set number
-syntax on
-
-" Tab
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
-
-set termguicolors
-set cursorline
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-set showcmd
-
-set ruler
-set showmatch
-set scrolloff=3
-set encoding=utf-8
-set laststatus=2
-set noshowmode
-set mouse=a
-set clipboard=unnamedplus
-set noswapfile
-set nobackup
-set nowb
-
-" Wild Menu
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
-
 " Disable 'u' Key in Visual Mode
 nnoremap <.> <Nop>
 nnoremap <,> <Nop> 
@@ -96,18 +44,14 @@ nnoremap <S-j> <Nop>
 nnoremap <S-l> <Nop>
 nnoremap <S-h> <Nop>
 
-
 " YouCompleteMe
 set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 inoremap <C-Spaced> <C-x><C-o>
 
-" 
+"
 command! W w
-
-
-" 
 inoremap <silent> <Esc> <Esc>:pclose<CR>
 
 " Split Window
@@ -151,7 +95,7 @@ autocmd FileType preview nnoremap <buffer> q :q<CR>
 
 " Plug Settings
 call plug#begin('~/.vim/plugged')
-    Plug 'Valloric/YouCompleteMe'
+    Plug 'ycm-core/YouCompleteMe'
     Plug 'tpope/vim-sensible'
     Plug 'scrooloose/nerdtree'
     Plug 'airblade/vim-gitgutter'
@@ -164,4 +108,58 @@ call plug#end()
 colorscheme purpura
 let g:crystalline_theme = 'purpura'
 highlight CursorLine guibg=#4b0e6e ctermbg=white
+
+" Ekstra settings
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let NERDTreeShowHidden=0
+filetype plugin indent on
+
+" Basic Settings
+set number
+set nowrap
+syntax on
+
+" Tab
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+set termguicolors
+set cursorline
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set showcmd
+
+set ruler
+set showmatch
+set scrolloff=3
+set encoding=utf-8
+set laststatus=2
+set noshowmode
+set mouse=a
+set clipboard=unnamedplus
+set noswapfile
+set nobackup
+set nowb
+
+" Wild Menu
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+
 

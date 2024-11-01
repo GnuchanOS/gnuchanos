@@ -43,7 +43,6 @@ read -rsn1 -p "##################### FINISH : PRESS ENTER ######################
 ##################################################################################################
 read -rsn1 -p "###### SYSTEM LANGUAGE ###########################################" variable; echo
 
-echo "Your chosen language is English/American."
 echo "LC_ALL=en_US.UTF-8" >> /etc/environment
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
@@ -78,7 +77,8 @@ echo "GPU Driver"
 while true; do
     echo " | input words -> | amd | intel | nvidia | ati | exit |  :> "; read input
     if [ $input == "amd" ]; then
-        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-amdgpu xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
+        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-amdgpu 
+		pacman -S --nocomfirm xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
         mkinitcpio -P
         break
     elif [ $input == "intel" ]; then
@@ -86,13 +86,16 @@ while true; do
         mkinitcpio -P
         break
     elif [ $input == "nvidia" ]; then
-        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps nvidia nvidia-utils nvidia-settings nvidia-dkms libglvnd vulkan-icd-loader
-        pacman -S --nocomfirm xf86-input-libinput xf86-input-evdev xf86-video-vesa
-        mkinitcpio -P
-        echo "use this later -> nvidia-xconfig"
+        pacman -S --noconfirm xorg xorg-server xorg-xinit mesa nvidia nvidia-utils nvidia-settings 
+		pacman -S --nocomfirm nvidia-dkms libglvnd vulkan-icd-loader
+		pacman -S --noconfirm xf86-input-libinput xf86-input-evdev xf86-video-vesa
+		pacman -S --noconfirm linux-headers
+		mkinitcpio -P
+		echo "use this later -> nvidia-xconfig"
         break
     elif [ $input == "ati" ]; then
-        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-ati xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
+        pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-ati 
+		pacman -S --nocomfirm xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
         mkinitcpio -P
         break
     elif [ $input == "exit" ]; then

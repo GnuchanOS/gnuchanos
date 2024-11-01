@@ -64,20 +64,21 @@ keys = [
 
     # No Gui
     Key([mod], "s", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/screenShoot.py")),
-    Key([mod, "shift"], "s", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/screenShoot_mouse.py", shell=True)),
 
     # GnuChanGUI
-    Key([mod], "t", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_0:SimpleTimer.py")),
-    Key([mod], "c", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_1:SimpleCalculator.py")),
-    Key([mod, "shift"], "t", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_2:SimpleTextEditor.py")),
-    Key([mod], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_3:SimpleProgramRunner.py")),
-    Key([mod], "i", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_4:SimpleImageViever.py")),
-    Key([mod], "m", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_5:SimpleMusicPlayer.py")),
-    Key([mod], "v", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_6:SimpleVideoPlayer.py")),
-    Key([mod, "shift"], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_7:SimpleLSVR.py")),
-    Key([mod, "shift"], "w", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_8:SimpleWineManager.py")),
-    Key([mod, "shift"], "v", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_9:SimpleVideoToSound.py")),
-    Key([mod, "shift"], "Return", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/_10:SimpleTerminalEmulator.py")),
+    Key([mod], "t", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/0_SimpleTimer.py")),
+    Key([mod], "c", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/1_SimpleCalculator.py")),
+    Key([mod, "shift"], "t", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/2_SimpleTextEditor.py")),
+    Key([mod], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/3_SimpleProgramRunner.py")),
+    Key([mod], "i", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/4_SimpleImageViever.py")),
+    Key([mod], "m", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/5_SimpleMusicPlayer.py")),
+    Key([mod], "v", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/6_SimpleVideoPlayer.py")),
+    Key([mod, "shift"], "r", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/7_SimpleSVAR.py")),
+    Key([mod, "shift"], "w", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/8_SimpleWineManager.py")),
+    Key([mod, "shift"], "d", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/9_DMV.py")),
+    
+    # this is not ready
+    #Key([mod, "shift"], "Return", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/")),
 
     # you can use this program runners
     Key( [mod], "f", lazy.spawn("dmenu_run -i -b -p 'GnuChanOS'  -fn 'Sans Mono:bold:pixelsize=12' -nb '#240046' -nf '#9d4edd' -sf '#9d4edd' -sb '#5a189a' ") ),
@@ -87,8 +88,18 @@ keys = [
 groups = [Group(i) for i in "1234567890"]
 for i in groups:
     keys.extend([
-       Key([mod], i.name, lazy.group[i.name].toscreen(), desc="Switch to group {}".format(i.name)),
-       Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True), desc="Switch to & move focused window to group {}".format(i.name))
+        Key(
+            [mod], 
+            i.name, 
+            lazy.group[i.name].toscreen(), 
+            desc="Switch to group {}".format(i.name)
+        ),
+        Key(
+           [mod, "shift"], 
+           i.name, 
+           lazy.window.togroup(i.name, switch_group=True), 
+           desc="Switch to & move focused window to group {}".format(i.name)
+        )
     ])
 
 # Window Layout 
@@ -113,15 +124,49 @@ screens = [ Screen(
         widget.Image(filename = "~/.config/qtile/img/ram.png", background = colors[0]),
         # Start Here
 
-        widget.GroupBox(background = colors[4],active = colors[2], inactive = colors[3],),
-        widget.Systray(padding=10,foreground=colors[2],background=colors[0],),  
-        widget.Spacer(background = colors[1]),
-        widget.Image(filename = "~/.config/qtile/img/gnu.png",scale = "False",background = colors[0],),
-        widget.TextBox(background=colors[0],foreground=colors[2],text="(-Gnu/Linux's My Life-)",),
-        widget.Image(filename = "~/.config/qtile/img/gnu.png",scale = "False",background = colors[0],),
-        widget.Spacer(background = colors[1]),
-        widget.KeyboardLayout(configured_keyboards="tr", foreground = colors[2],background = colors[4]),
-        widget.Clock(foreground = colors[2],background = colors[4],format = "%A, %B %d - %H:%M "),
+
+        widget.GroupBox(
+            background = colors[4],
+            active = colors[2], 
+            inactive = colors[3]
+        ),
+        widget.Systray(
+            padding=10,
+            foreground=colors[2],
+            background=colors[0]
+        ),  
+        widget.Spacer(
+            background = colors[1]
+        ),
+        widget.Image(
+            filename = "~/.config/qtile/img/gnu.png",
+            scale = "False",
+            background = colors[0]
+        ),
+        widget.TextBox(
+            background=colors[0],
+            foreground=colors[2],
+            text="(-Gnu/Linux's My Life-)"
+        ),
+        widget.Image(
+            filename = "~/.config/qtile/img/gnu.png",
+            scale = "False",
+            background = colors[0]
+        ),
+        widget.Spacer(
+            background = colors[1]
+        ),
+        widget.KeyboardLayout(
+            configured_keyboards="tr", 
+            foreground = colors[2],
+            background = colors[4]
+        ),
+        widget.Clock(
+            foreground = colors[2],
+            background = colors[4],
+            format = "%A, %B %d - %H:%M "
+        ),
+
 
         # End Here
         widget.Image(filename = "~/.config/qtile/img/rem.png", background = colors[0]),
@@ -133,17 +178,57 @@ screens = [ Screen(
         widget.Spacer(background = colors[1]),
         # Start Here
 
-        widget.HDDBusyGraph(device = "sda", graph_color = colors[2], fill_color = colors[2],  border_color = colors[1], background = colors[4]),
-        widget.ThermalSensor(foreground = colors[2], background = colors[4], threshold = 90,fmt = 'Temp: {}', padding = 5),
-        widget.CPU (foreground=colors[2], background=colors[4]),
-        widget.Memory(foreground = colors[2], background = colors[4], fmt = 'Ram: {}',padding = 5),
-        widget.Net(interface = InternetDeviceName, format = 'Net: {down} ↓↑ {up}',  foreground = colors[2], background = colors[4], padding = 5),
-        widget.Battery(format = " {percent:2.0%} ({hour:d}:{min:02d})", **widget_defaults, foreground = colors[2], background = colors[4]),
-        widget.Wlan(interface = InternetDeviceName, foreground = colors[2], background = colors[4]),
+
+        widget.HDDBusyGraph(
+            device = "sda", 
+            graph_color = colors[2], 
+            fill_color = colors[2], 
+            border_color = colors[1], 
+            background = colors[4]
+        ),
+        widget.ThermalSensor(
+            foreground = colors[2], 
+            background = colors[4], 
+            threshold = 90,fmt = 'Temp: {}', 
+            padding = 5
+        ),
+        widget.CPU (
+            foreground=colors[2], 
+            background=colors[4]
+        ),
+        widget.Memory(
+            foreground = colors[2], 
+            background = colors[4], 
+            fmt = 'Ram: {}',
+            padding = 5
+        ),
+        widget.Net(
+            interface = InternetDeviceName, format = 'Net: {down} ↓↑ {up}',  
+            foreground = colors[2], 
+            background = colors[4], 
+            padding = 5
+        ),
+        widget.Battery(
+            format = " {percent:2.0%} ({hour:d}:{min:02d})", 
+            **widget_defaults, 
+            foreground = colors[2], 
+            background = colors[4]
+        ),
+        widget.Wlan(
+            interface = InternetDeviceName, 
+            foreground = colors[2], 
+            background = colors[4]
+        ),
+
 
         # End Here
-        widget.Spacer(background = colors[1]),
-        widget.TextBox(background = colors[0], text=":"),
+        widget.Spacer(
+            background = colors[1]
+        ),
+        widget.TextBox(
+            background = colors[0], 
+            text=":"
+        ),
     ], 16, background = colors[0], margin=[5, 5, 5, 5] ),
 
 

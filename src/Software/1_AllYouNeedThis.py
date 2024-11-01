@@ -11,25 +11,25 @@ class MainPrograms:
         print("#[multilib]")
         print("#Include = /etc/pacman.d/mirrorlist")
         _GG = input("Don't forget remove this -> # <Press Enter>")
-        os.system("sudo nano")
+        os.system("sudo nano /etc/pacman.conf")
         os.system("sudo pacman -Syu --noconfirm archlinux-keyring xorg.-xinput")
 
 
         # all packages
-        os.system("sudo pacman -S --noconfirm zip unzip p7zip  expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv")
-        os.system("sudo pacman -S --noconfirm gst-libav libmad libtheora libmpeg2 wavpack x264 xvidcore libdvdcss libdvdread libdvdnav dvd+rw-tools")
-        os.system("sudo pacman -S --noconfirm dvdauthor dvgrab lib32-alsa-lib  lib32-alsa-plugins  lib32-libpulse  lib32-alsa-oss net-tools xsel")
-        os.system("sudo pacman -S --noconfirm pcre pcre2 lib32-pcre lib32-pcre2 util-linux util-linux-libs lib32-util-linux xz lib32-xz")
-        os.system("sudo pacman -S --noconfirm gparted vlc conky leafpad arandr btop jdk-openjdk bchunk")
-        os.system("sudo pacman -S --noconfirm qbittorrent dmenu rofi fastfetch make cmake openssh timidity fail2ban")
+        os.system("sudo pacman -Sy --noconfirm zip unzip p7zip  expac jshon gvfs-mtp mtpfs exfat-utils a52dec faac fuse-exfat faad2 jasper lame libdca libdv")
+        os.system("sudo pacman -Sy --noconfirm gst-libav libmad libtheora libmpeg2 wavpack x264 xvidcore libdvdcss libdvdread libdvdnav dvd+rw-tools")
+        os.system("sudo pacman -Sy --noconfirm dvdauthor dvgrab lib32-alsa-lib  lib32-alsa-plugins  lib32-libpulse  lib32-alsa-oss net-tools xsel")
+        os.system("sudo pacman -Sy --noconfirm pcre pcre2 lib32-pcre lib32-pcre2 util-linux util-linux-libs lib32-util-linux xz lib32-xz")
+        os.system("sudo pacman -Sy --noconfirm gparted vlc conky leafpad arandr btop jdk-openjdk bchunk")
+        os.system("sudo pacman -Sy --noconfirm qbittorrent dmenu rofi fastfetch make cmake openssh timidity fail2ban")
 
         # Personal Programs
-        os.system("sudo pacman -S --nocomfirm ranger cmus dunst nitrogen")
-        os.system("sudo pacman -S --nocomfirm zathura zathura-pdf-poppler ristretto")
-        os.system("sudo pacman -S --nocomfirm lxappearance lxapperance-obconf scrot")
+        os.system("sudo pacman -Sy --nocomfirm ranger cmus dunst nitrogen")
+        os.system("sudo pacman -Sy --nocomfirm zathura zathura-pdf-poppler ristretto")
+        os.system("sudo pacman -Sy --nocomfirm lxappearance lxapperance-obconf scrot")
 
         # System Optimisation
-        os.system("sudo -Sy --noconfirm irqbalance tlp tlpui cpupower")
+        os.system("sudo pacman -Sy --noconfirm irqbalance tlp tlpui cpupower")
 
         os.system("sudo systemctl enable --now irqbalance")
         os.system("sudo systemctl enable --now tlp")
@@ -74,7 +74,7 @@ class MainPrograms:
             elif _userInput == "ch" or "chromium":
                 os.system("sudo pacman -Sy --nocomfirm chromium")
                 break
-            elif _userInput === "br" or "brave":
+            elif _userInput == "br" or "brave":
                 os.system("sudo pacman -Sy --nocomfirm brave-browser")
                 break
             elif _userInput == "vr" or "vivaldi":
@@ -85,5 +85,6 @@ class MainPrograms:
             else:
                 print("What??? bro??")
 
-
+if __name__ == "__main__":
+    gc = MainPrograms()
 

@@ -24,11 +24,12 @@ xterm*color14: #8be9fd
 xterm*color15: #ffffff
 
 ! Font settings
-xterm*faceName: Sans :antialias=true:pixelsize=10
+xterm*faceName: Monospace:antialias=true:pixelsize=10
 
 ! Scroll settings
 xterm*ScrollBar: true
 xterm*rightScrollBar: true
+XTerm*cursorThickness: 1
 
 ! Select Text Color
 xterm*highlightColor: #5a189a
@@ -38,6 +39,50 @@ xterm*locale: true
 xterm*utf8: 2
 
 ! Copy/Paste
-XTerm*vt100.translations: #override \
+xterm*vt100.translations: #override \
     Shift Ctrl <Key>C: copy-selection(CLIPBOARD) \n\
     Shift Ctrl <Key>V: insert-selection(CLIPBOARD)
+
+xterm*VT100*translations:       #override \
+    Ctrl <Key> BackSpace: string(0x1b) string(0x8)
+
+
+
+! Mouse Scrollback
+xterm*VT100.scrollTtyOutput: false
+xterm*VT100.scrollTtyKeypress: true
+
+! Blinking Cursor
+xterm*cursorBlink: true
+
+! Cursor Color
+xterm*cursorColor: #ff79c6
+
+! Scrollbar Thumb Color
+xterm*scrollColor: #5a189a
+xterm*troughColor: #44475a
+
+! Bold Text Color
+xterm*colorBD: #ff79c6
+
+! Text Rewrap on Resize
+xterm*autoWrap: true
+xterm*scrollTtyOutput: false
+xterm*scrollKey: true
+
+! Miscellaneous Performance Tweaks
+xterm*cutNewline: false
+xterm*cutToBeginningOfLine: false
+
+! Keyboard Support for Delete Key
+xterm*backarrowKey: true
+xterm*deleteIsDEL: true
+
+
+
+
+
+
+
+
+
