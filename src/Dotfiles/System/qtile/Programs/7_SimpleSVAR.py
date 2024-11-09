@@ -3,12 +3,23 @@ this lgpl3+ 4.61.0.206 Unreleased version
 fun it's a serious goal of the project. if we're not having fun while making stuff, when something's not right!
 """
 
-from GnuChanGUI import *
-import cProfile
+# Don't do like this from lib import * for gnchangui
+from GnuChanGUI import GnuChanGUI, os, Thread, time
+from GnuChanGUI import GnuChanOSColor, GColors, Themecolors
+from GnuChanGUI import GKeyboard
+from GnuChanGUI import GTimer
+from GnuChanGUI import GMessage
+from GnuChanGUI import IsProgramRunning
+
+# Extra Lib
 from datetime import datetime
+
+
+
+
+
+
 #Thread(target=DownloadVideo, args=[]).start()
-
-
 class SimpleRecordAndLivestream:
     def __init__(self) -> None:
         self.GC = GnuChanGUI(Title=" UwU ", Size=(1024, 655), resizable=True, finalize=True)
@@ -117,6 +128,7 @@ class SimpleRecordAndLivestream:
                 self.GC.GText(SetText="Stream key: ", TFont=self.GC.font, BColor=self.CGC.FColors2),
                 self.GC.GInput(SetValue="skey", xStretch=True, HidePassword="*", Size=(20, None), TFont=self.GC.font, BColor=self.C.purple6)
             ],
+            [self.GC.GText(SetText="Don't Forget Save Stream key", SetValue="ready", TFont=self.GC.font, BColor=self.CGC.FColors2)],
             [   
                 self.GC.GPush(BColor=self.CGC.FColors2),
                 self.GC.GButton(Text="Save Stream Key", TFont=self.GC.font),
@@ -151,6 +163,10 @@ class SimpleRecordAndLivestream:
         self.ScreenRecordTabPart = [
             [self.GC.GText(SetText="0:0:0", SetValue="record", TFont="Sans, 40", TPosition="center", xStretch=True, BColor=self.C.purple8, EmptySpace=(0, 0))],
             [self.GC.GText(SetText="File Path Here!", SetValue="path", xStretch=True, BColor=self.CGC.SColors0, TFont=self.GC.font, EmptySpace=(0, 0))],
+            [
+                self.GC.GText(SetText="Video Name: ", EmptySpace=(0, 0)),
+                self.GC.GText(SetText="Start Record Video", SetValue="video_name", EmptySpace=(0, 0))
+            ],
             [self.GC.GColumn(winColumnLayout_List=self.InputAndButtonsVideoRecord, xStretch=True, BColor=self.CGC.SColors1, EmptySpace=(0, 0))],
             [self.GC.GText(SetText="Directory Video List", xStretch=True, TPosition="center", BColor=self.CGC.FColors5, EmptySpace=(0, 0))],
             [self.GC.GListBox(SetValue="videos", xStretch=True, yStretch=True, noScroolBar=True, BColor=self.C.purple8, LPosition="center", EmptySpace=(0, 0))]
@@ -183,7 +199,7 @@ class SimpleRecordAndLivestream:
         self.StartRecordORStream = False
         self.TimerLiveStream = self.TimerRecord = False
         self.VideoPath = ""
-
+        self.IsProgramRunning = False
 
         # update window element
         self.GC.GetWindow["rtmp"].update("rtmp://a.rtmp.youtube.com/live2")
@@ -286,17 +302,27 @@ class SimpleRecordAndLivestream:
                         _DesktopID = f"-w {self.GC.GetValues["mID"]}"
                         _FullCommand = f"{self.GSR} {_DesktopID} {self.Codecs} {_deskMic} {self.Fps} {self.VideoQuality} {self.SoundQuality} {_VideoPath}"
                         Thread(target=self.StartScreenRecord, args=[_FullCommand]).start()
-                        self.TimerRecord = True                        
-                        self.StartRecordORStream = True
-
+                        
+                        # Video Name Update In Window
                         time.sleep(1) # time sleep for wait if video path exit refresh video list
-                        if os.path.exists(self.VideoPath):
-                            _listfiles = os.listdir(self.VideoPath)
-                            _videosList = []
-                            for i in _listfiles:
-                                if str(i).endswith(".mp4") or str(i).endswith(".mkv"):
-                                    _videosList.append(i)
-                            self.GC.GetWindow["videos"].update(_videosList)
+                        self.IsProgramRunning = IsProgramRunning("gpu-screen-recorder")
+                        time.sleep(1)
+                        if self.IsProgramRunning:
+                            self.TimerRecord = True
+                            self.StartRecordORStream = True
+
+                            self.GC.GetWindow["video_name"].update(f"{str(self.VideoName).replace(" ", "\\ ")}-{_Time}.mkv")
+                            if os.path.exists(self.VideoPath):
+                                _listfiles = os.listdir(self.VideoPath)
+                                _videosList = []
+                                for i in _listfiles:
+                                    if str(i).endswith(".mp4") or str(i).endswith(".mkv"):
+                                        _videosList.append(i)
+                                _videosList.sort()
+                                self.GC.GetWindow["videos"].update(_videosList)
+
+                        else:
+                            GMessage(WindowText="Record Not Starting You Must Check This Problems\nMonutor ID\nMicroPhone ID\n")
 
         elif self.GC.GetEvent == "Stop Record":
             if self.StartRecordORStream:
@@ -313,6 +339,7 @@ class SimpleRecordAndLivestream:
             self.Key = self.GC.GetValues["skey"]
             if len(self.Rtmp) > 0 and len(self.Key) > 0:
                 self.StreamKey = f"-o {self.Rtmp}/{self.Key}"
+            self.GC.GetWindow["ready"].update("Stream Ready To Start")
 
         elif self.GC.GetEvent == "Start Live Stream":
             if not self.StartRecordORStream:
@@ -321,9 +348,18 @@ class SimpleRecordAndLivestream:
                     _DesktopID = f"-w {self.GC.GetValues["mID"]}"
                     _FullCommand = f"{self.GSR} {_DesktopID} {self.Codecs} {_deskMic} {self.Fps} {self.VideoQuality} {self.SoundQuality} {self.StreamKey}"
                     Thread(target=self.StartLiveStream, args=[_FullCommand]).start()
-                    self.StartRecordORStream = True
-                    self.TimerLiveStream = True
-        
+
+
+                    time.sleep(1)                  
+                    self.IsProgramRunning = IsProgramRunning("gpu-screen-recorder")
+                    time.sleep(1)
+                    if self.IsProgramRunning:
+                        self.TimerLiveStream = True
+                        self.StartRecordORStream = True
+                    else:
+                        GMessage(WindowText="livestream Not Starting You Must Check This Problems\nMonutor ID\nMicroPhone ID\n")
+
+
         elif self.GC.GetEvent == "Stop Live Stream":
             if self.StartRecordORStream:
                 os.popen("killall -SIGINT gpu-screen-recorder && notify-send -t 7500 -u low \"LiveStream Is Finish!\"")

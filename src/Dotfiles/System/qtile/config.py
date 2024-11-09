@@ -113,8 +113,9 @@ colors = [["#240046", "#240046"], # 0: background color
           ["#5a189a", "#5a189a"], # 1: spacer background color
           ["#9d4edd", "#9d4edd"], # 2: text color
           ["#c77dff", "#c77dff"], # 3: inactive and not update text color
-          ["#3c096c", "#3c096c"], # 4: other widget back ground
-          ]
+          ["#3c096c", "#3c096c"], # 4: other widget background color
+          ["#0e0024", "#0e0024"], # 5: separator background color
+]
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 # This Config File Have 2 Bar
@@ -124,17 +125,39 @@ screens = [ Screen(
         widget.Image(filename = "~/.config/qtile/img/ram.png", background = colors[0]),
         # Start Here
 
+        # Left
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
 
         widget.GroupBox(
             background = colors[4],
             active = colors[2], 
             inactive = colors[3]
         ),
+
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+
         widget.Systray(
             padding=10,
             foreground=colors[2],
             background=colors[0]
         ),  
+       widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+        # Left
+
+
+        # Middle
         widget.Spacer(
             background = colors[1]
         ),
@@ -152,21 +175,57 @@ screens = [ Screen(
             filename = "~/.config/qtile/img/gnu.png",
             scale = "False",
             background = colors[0]
-        ),
+        ), 
         widget.Spacer(
             background = colors[1]
         ),
+        # Middle
+
+        # Right
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+ 
         widget.KeyboardLayout(
             configured_keyboards="tr", 
             foreground = colors[2],
             background = colors[4]
         ),
+
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+ 
         widget.Clock(
             foreground = colors[2],
             background = colors[4],
             format = "%A, %B %d - %H:%M "
         ),
 
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+
+        widget.Battery(
+            format = " {percent:2.0%} ({hour:d}:{min:02d})", 
+            **widget_defaults, 
+            foreground = colors[2], 
+            background = colors[4]
+        ),
+
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+        # Right
+ 
 
         # End Here
         widget.Image(filename = "~/.config/qtile/img/rem.png", background = colors[0]),
@@ -179,6 +238,13 @@ screens = [ Screen(
         # Start Here
 
 
+        # Middle
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+ 
         widget.HDDBusyGraph(
             device = "sda", 
             graph_color = colors[2], 
@@ -186,40 +252,81 @@ screens = [ Screen(
             border_color = colors[1], 
             background = colors[4]
         ),
+
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+ 
+
         widget.ThermalSensor(
             foreground = colors[2], 
             background = colors[4], 
-            threshold = 90,fmt = 'Temp: {}', 
+            threshold = 90,
+            #fmt = 'Temp: {}', 
             padding = 5
         ),
+
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+ 
+
         widget.CPU (
             foreground=colors[2], 
             background=colors[4]
         ),
+
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+ 
+
         widget.Memory(
             foreground = colors[2], 
             background = colors[4], 
-            fmt = 'Ram: {}',
+            #fmt = 'Ram: {}',
             padding = 5
         ),
+
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+ 
+
         widget.Net(
-            interface = InternetDeviceName, format = 'Net: {down} ↓↑ {up}',  
+            interface = InternetDeviceName, format = '{down} ↓↑ {up}',  
             foreground = colors[2], 
             background = colors[4], 
             padding = 5
         ),
-        widget.Battery(
-            format = " {percent:2.0%} ({hour:d}:{min:02d})", 
-            **widget_defaults, 
-            foreground = colors[2], 
-            background = colors[4]
+
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
         ),
-        widget.Wlan(
+ 
+
+       widget.Wlan(
             interface = InternetDeviceName, 
             foreground = colors[2], 
             background = colors[4]
         ),
 
+        widget.TextBox(
+            background=colors[5],
+            foreground=colors[5],
+            text=" "
+        ),
+        # Middle 
 
         # End Here
         widget.Spacer(

@@ -3,12 +3,17 @@ this lgpl3+ 4.61.0.206 Unreleased version
 fun it's a serious goal of the project. if we're not having fun while making stuff, when something's not right!
 """
 
-from GnuChanGUI import *
-import cProfile
-from pygame import mixer
+# Don't do like this from lib import * for gnchangui
+from GnuChanGUI import GnuChanGUI, os, Thread
+from GnuChanGUI import GnuChanOSColor, GColors, Themecolors
+from GnuChanGUI import GKeyboard
+from GnuChanGUI import GMixer
+
+# Extra Lib
+
+
+
 #Thread(target=DownloadVideo, args=[]).start()
-
-
 class SimpleMusicPlayer:
     def __init__(self) -> None:
         self.GC = GnuChanGUI(Title=" UwU ", Size=(1024, 655), resizable=True, finalize=True)
@@ -42,8 +47,8 @@ class SimpleMusicPlayer:
                 self.GC.GVSep(Color=self.CGC.FColors3),
             ],
             [ 
-                self.GC.GText(SetText="Music: ", BColor=self.CGC.FColors0, EmptySpace=(0, 0)), 
-                self.GC.GText(SetValue="musicName", xStretch=True, BColor=self.CGC.FColors0, EmptySpace=(0, 0)) 
+                self.GC.GText(SetText="Music: ", BColor=self.C.purple8, EmptySpace=(0, 0)), 
+                self.GC.GText(SetValue="musicName", TPosition="center",  BColor=self.C.purple8, xStretch=True, EmptySpace=(0, 0)) 
             ],
             [self.GC.GSlider(MaxRange=(0, 10), DefaultValue=5, SDirection="h", SetValue="slider", xStretch=True, BColor=self.C.purple8)   ]
         ]
@@ -58,7 +63,7 @@ class SimpleMusicPlayer:
 
         self.dir = os.path.expanduser("~")
         self.path = ""
-        self.volume = 0.5
+        self.volume = 5
         self.volume_slider = 5
         self.fileList = []
         self.musicList = []
@@ -104,10 +109,11 @@ class SimpleMusicPlayer:
     def volume_func(self):
         self.volume_slider = int(self.GC.GetValues["slider"])
         if self.volume_slider != 10:
-            self.volume = float(f"0.{self.volume_slider}")
+            self.volume = float(self.volume_slider)
         else:
-            self.volume = 1
-        mixer.music.set_volume(self.volume)
+            self.volume = 10
+
+        self.musicPlay.VolumeChange_Gslider(self.volume)
 
     def Update(self):
         #self.GC.GetEvent == "event" -> window event

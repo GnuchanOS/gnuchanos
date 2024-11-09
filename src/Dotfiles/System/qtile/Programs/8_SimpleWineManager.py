@@ -3,7 +3,13 @@ this lgpl3+ 4.61.0.206 Unreleased version
 fun it's a serious goal of the project. if we're not having fun while making stuff, when something's not right!
 """
 
-from GnuChanGUI import *
+# Don't do like this from lib import * for gnchangui
+from GnuChanGUI import GnuChanGUI, os, Thread, time
+from GnuChanGUI import GnuChanOSColor, GColors, Themecolors
+from GnuChanGUI import GKeyboard
+
+
+# Extra Lib
 from gamelist import gamelist
 #Thread(target=DownloadVideo, args=[]).start()
 
@@ -85,12 +91,12 @@ class SimpleWineManager:
         ]
 
         self.wine_debug = [
-            [self.GC.GLog(xStretch=True, yStretch=True, BColor=self.CGC.FColors0)]
+            [self.GC.GText(xStretch=True, yStretch=True, BColor=self.CGC.FColors0)]
         ]
 
         self.wine_triks = [
-            [self.GC.GMultiline(SetValue="output", TFont="Sans, 12", xStretch=True, yStretch=True, ReadOnly=True, BColor=self.CGC.FColors0)],
-            [self.GC.GInput(SetValue="input", TFont="Sans, 15", xStretch=True, BColor=self.C.purple8)],
+            [self.GC.GMultiline(SetValue="output", TFont="Sans, 12", xStretch=True, yStretch=True, ReadOnly=True, BColor=self.CGC.FColors0, EmptySpace=(0,0))],
+            [self.GC.GInput(SetValue="input", TFont="Sans, 15", xStretch=True, BColor=self.C.purple8, EmptySpace=(0,0))],
         ]
 
         # main window layout you can use column and frame in here
@@ -117,7 +123,6 @@ class SimpleWineManager:
         self.GC.GetWindow["gamelist_create"].update(gamelist)
         self.GC.GetWindow["gamelist_run"].update(gamelist)
 
-
         self.Path = f"{os.path.expanduser("~")}/Games/winePrefix/"
         self._PyFilePath = os.path.dirname(os.path.abspath(__file__))
         self.RunThis = ""
@@ -125,6 +130,7 @@ class SimpleWineManager:
         self.WineSystemBit = ""
 
         self.BumbleeTech = "primusrun"
+        self.PrimusrunTrue = False
         self.Mangohud  = "mangohud --dlsym"
         self.GameMode  = "gamemoderun"
 
@@ -144,6 +150,7 @@ class SimpleWineManager:
                 self.Mangohud = "MANGOHUD=1"
             if self.GC.GetEvent == "gl":
                 self.Mangohud = "mangohud --dlsym"
+            print(self.Mangohud)
 
 
         if self.GC.GetEvent in ("32bit", "64bit"):
@@ -200,7 +207,14 @@ class SimpleWineManager:
                         os.chdir(_GameDir)
                         time.sleep(1)
 
-                        self.RunThis = f"WINEPREFIX=\"{_SelectPath.replace(' ', '\\ ')}\" {self.Mangohud} {self.GameMode} wine {_GameName}"
+                        self.PrimusrunTrue = self.GC.GetValues["_primusrun"]
+                        print(self.PrimusrunTrue)
+                        if self.PrimusrunTrue:
+                            self.RunThis = f"WINEPREFIX=\"{_SelectPath.replace(' ', '\\ ')}\" {self.BumbleeTech} {self.Mangohud} {self.GameMode} wine {_GameName}"
+                        else:
+                            self.RunThis = f"WINEPREFIX=\"{_SelectPath.replace(' ', '\\ ')}\" {self.Mangohud} {self.GameMode} wine {_GameName}"
+
+
                         Thread(target=self.RunEXE, args=[self.RunThis]).start()
             except Exception as ERR:
                 print(ERR)

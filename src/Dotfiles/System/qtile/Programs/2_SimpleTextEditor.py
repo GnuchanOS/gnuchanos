@@ -3,11 +3,15 @@ this lgpl3+ 4.61.0.206 Unreleased version
 fun it's a serious goal of the project. if we're not having fun while making stuff, when something's not right!
 """
 
-from GnuChanGUI import *
-import cProfile
+# Don't do like this from lib import * for gnchangui
+from GnuChanGUI import GnuChanGUI, os, Thread
+from GnuChanGUI import GnuChanOSColor, GColors, Themecolors
+from GnuChanGUI import GKeyboard
+
+# Extra Lib
+
+
 #Thread(target=DownloadVideo, args=[]).start()
-
-
 class SimpleTextEditor:
     def __init__(self) -> None:
         self.GC = GnuChanGUI(Title=" UwU ", Size=(1024, 655), resizable=True, finalize=True)

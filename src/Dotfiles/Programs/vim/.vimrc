@@ -3,6 +3,9 @@ filetype off " required
 autocmd FileType c,cpp setlocal noautoindent
 
 " Disable 'u' Key in Visual Mode
+vnoremap u <Nop>
+vnoremap <Enter> <Nop>
+
 nnoremap <.> <Nop>
 nnoremap <,> <Nop> 
 nnoremap " <Nop>
@@ -23,13 +26,13 @@ nnoremap l  <Nop>
 nnoremap e <Nop>
 nnoremap w <Nop>
 nnoremap ç <Nop>
-vnoremap u <Nop>
 nnoremap s <Nop>
 nnoremap r <Nop>
 nnoremap o <Nop>
 nnoremap a <Nop>
 nnoremap b <Nop>
 
+nnoremap <Enter> <Nop>
 nnoremap <C-space> <Nop>
 
 nnoremap d "_d
@@ -44,15 +47,12 @@ nnoremap <S-j> <Nop>
 nnoremap <S-l> <Nop>
 nnoremap <S-h> <Nop>
 
-" YouCompleteMe
-set omnifunc=syntaxcomplete#Complete
-set completeopt=menuone,noinsert,noselect
-set shortmess+=c
-inoremap <C-Spaced> <C-x><C-o>
-
 "
 command! W w
 inoremap <silent> <Esc> <Esc>:pclose<CR>
+inoremap <kDel> <Del>
+inoremap <C-v><Del> <Del>
+
 
 " Split Window
 nnoremap <C-w> :split<CR> " Split Horizontal
@@ -92,28 +92,6 @@ nnoremap <BS> i
 
 " Preview close
 autocmd FileType preview nnoremap <buffer> q :q<CR>
-
-" Plug Settings
-call plug#begin('~/.vim/plugged')
-    Plug 'ycm-core/YouCompleteMe'
-    Plug 'tpope/vim-sensible'
-    Plug 'scrooloose/nerdtree'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'yassinebridi/vim-purpura'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-call plug#end()
-
-" Theme
-colorscheme purpura
-let g:crystalline_theme = 'purpura'
-highlight CursorLine guibg=#4b0e6e ctermbg=white
-
-" Ekstra settings
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-let NERDTreeShowHidden=0
-filetype plugin indent on
 
 " Basic Settings
 set number
@@ -161,5 +139,46 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
+
+set backspace=indent,eol,start
+
+" Plug Settings
+call plug#begin('~/.vim/plugged')
+    " Lang Complete
+	Plug 'ycm-core/YouCompleteMe'
+	" make vim user frendly
+    Plug 'tpope/vim-sensible'
+    " Dir Tree
+	Plug 'scrooloose/nerdtree'
+	" git change
+    Plug 'airblade/vim-gitgutter'
+	" Vim Theme
+	Plug 'yassinebridi/vim-purpura'
+	" Buttom Bar Theme work with vim theme
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+call plug#end()
+
+" Theme
+colorscheme purpura
+let g:crystalline_theme = 'purpura'
+highlight CursorLine guibg=#4b0e6e ctermbg=white
+
+" Ekstra settings
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let NERDTreeShowHidden=0
+filetype plugin indent on
+
+" YouCompleteMe
+set omnifunc=syntaxcomplete#Complete
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+inoremap <C-Spaced> <C-x><C-o>
+
+
+
+
+
 
 
