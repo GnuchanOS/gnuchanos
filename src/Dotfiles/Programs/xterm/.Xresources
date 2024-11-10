@@ -46,8 +46,6 @@ xterm*vt100.translations: #override \
 xterm*VT100*translations:       #override \
     Ctrl <Key> BackSpace: string(0x1b) string(0x8)
 
-
-
 ! Mouse Scrollback
 xterm*VT100.scrollTtyOutput: false
 xterm*VT100.scrollTtyKeypress: true
