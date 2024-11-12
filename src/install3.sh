@@ -23,7 +23,6 @@ sudo pacman -S  --noconfirm pipewire pipewire-alsa pipewire-media-session pipewi
 systemctl --user --now enable pipewire pipewire-pulse pipewire-media-session
 yay -Sy pavucontrol-gtk
 
-cp -r pipewire/ ~/.config/
 systemctl --user restart pipewire pipewire-pulse pipewire-media-session.service
 
 echo "fck pulseaudio  | pipewire Completed!   " variable; echo
