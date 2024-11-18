@@ -1,9 +1,12 @@
 # GRUB boot loader configuration
 
 GRUB_DEFAULT=0
-GRUB_TIMEOUT=5
+GRUB_TIMEOUT=1
 GRUB_DISTRIBUTOR="GnuChanOS"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash udev.log_priority=3  vt.gloabl_cursor_default=1 i8042.nokbd" #i8042.nokbd laptop keyboard
+
+#i8042.nokbd laptop keyboard
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash udev.log_priority=3  i8042.nokbd" 
+
 GRUB_CMDLINE_LINUX="quiet splash nokbd"
 
 # Preload both GPT and MBR modules so that they are not missed

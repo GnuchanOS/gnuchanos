@@ -1,7 +1,10 @@
 #!/bin/bash
 echo "if you see this ## press enter"
 
-sudo localectl --no-convert set-x11-keymap tr
+echo "sudo localectl --no-convert set-x11-keymap tr"
+echo "sudo localectl --no-convert set-x11-keymap us"
+
+
 ##################################################################################################
 read -rsn1 -p "###### LOCAL TIME #################################################" variable; echo
 read -rsn1 -p "Select Time Zone  Europe/Istanbul My zone //Press Enter" variable; echo
