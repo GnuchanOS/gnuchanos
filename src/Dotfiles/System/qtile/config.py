@@ -22,8 +22,8 @@ from libqtile import qtile
 mod = "mod4"
 terminal = guess_terminal("xterm")
 user_home = os.path.expanduser("~")
-InternetDeviceName = "wlp3s0"
-
+InternetDeviceName = "enp37s0"
+keyboardLang = "us"
 
 # All ShortCut Here
 keys = [
@@ -126,111 +126,34 @@ screens = [ Screen(
         # Start Here
 
         # Left
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
-
-        widget.GroupBox(
-            background = colors[4],
-            active = colors[2], 
-            inactive = colors[3]
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
-
-        widget.Systray(
-            padding=10,
-            foreground=colors[2],
-            background=colors[0]
-        ),  
-       widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
+        widget.GroupBox( background = colors[4], active = colors[2], inactive = colors[3] ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
+        widget.Systray(padding=10,foreground=colors[2], background=colors[0] ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
         # Left
 
 
         # Middle
-        widget.Spacer(
-            background = colors[1]
-        ),
-        widget.Image(
-            filename = "~/.config/qtile/img/gnu.png",
-            scale = "False",
-            background = colors[0]
-        ),
-        widget.TextBox(
-            background=colors[0],
-            foreground=colors[2],
-            text="(-Gnu/Linux's My Life-)"
-        ),
-        widget.Image(
-            filename = "~/.config/qtile/img/gnu.png",
-            scale = "False",
-            background = colors[0]
-        ), 
-        widget.Spacer(
-            background = colors[1]
-        ),
+        widget.Spacer( background = colors[1] ),
+        widget.Image( filename = "~/.config/qtile/img/gnu.png", scale = "False", background = colors[0] ),
+        widget.TextBox( background=colors[0], foreground=colors[2], text="(-Gnu/Linux's My Life-)" ),
+        widget.Image( filename = "~/.config/qtile/img/gnu.png", scale = "False", background = colors[0] ), 
+        widget.Spacer( background = colors[1] ),
         # Middle
 
         # Right
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
- 
-        widget.KeyboardLayout(
-            configured_keyboards="tr", 
-            foreground = colors[2],
-            background = colors[4]
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
- 
-        widget.Clock(
-            foreground = colors[2],
-            background = colors[4],
-            format = "%A, %B %d - %H:%M "
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
-
-        widget.Battery(
-            format = " {percent:2.0%} ({hour:d}:{min:02d})", 
-            **widget_defaults, 
-            foreground = colors[2], 
-            background = colors[4]
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
+        widget.KeyboardLayout( configured_keyboards=keyboardLang, foreground = colors[2], background = colors[4] ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
+        widget.Clock( foreground = colors[2], background = colors[4], format = "%A, %B %d - %H:%M " ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" "),
         # Right
- 
 
         # End Here
         widget.Image(filename = "~/.config/qtile/img/rem.png", background = colors[0]),
         widget.TextBox(background = colors[0], text=":"),
-    ], 16, background = colors[0], margin=[5, 5, 5, 5]),
+    ], 30, background = colors[0], margin=[5, 5, 5, 5]),
 
     bottom=bar.Bar([
         widget.TextBox(background = colors[0], text=":"),
@@ -239,107 +162,25 @@ screens = [ Screen(
 
 
         # Middle
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
- 
-        widget.HDDBusyGraph(
-            device = "sda", 
-            graph_color = colors[2], 
-            fill_color = colors[2], 
-            border_color = colors[1], 
-            background = colors[4]
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
- 
-
-        widget.ThermalSensor(
-            foreground = colors[2], 
-            background = colors[4], 
-            threshold = 90,
-            #fmt = 'Temp: {}', 
-            padding = 5
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
- 
-
-        widget.CPU (
-            foreground=colors[2], 
-            background=colors[4]
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
- 
-
-        widget.Memory(
-            foreground = colors[2], 
-            background = colors[4], 
-            #fmt = 'Ram: {}',
-            padding = 5
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
- 
-
-        widget.Net(
-            interface = InternetDeviceName, format = '{down} ↓↑ {up}',  
-            foreground = colors[2], 
-            background = colors[4], 
-            padding = 5
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
- 
-
-       widget.Wlan(
-            interface = InternetDeviceName, 
-            foreground = colors[2], 
-            background = colors[4]
-        ),
-
-        widget.TextBox(
-            background=colors[5],
-            foreground=colors[5],
-            text=" "
-        ),
+        widget.TextBox( background=colors[5],foreground=colors[5],text=" " ),
+        widget.HDDBusyGraph( device = "sda", graph_color = colors[2], fill_color = colors[2], border_color = colors[1], background = colors[4] ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
+        widget.ThermalSensor( foreground = colors[2], background = colors[4], threshold = 90, fmt = 'Temp: {}',  padding = 5 ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
+        widget.CPU ( foreground=colors[2], background=colors[4] ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
+        widget.Memory( foreground = colors[2], background = colors[4], fmt = 'Ram: {}', padding = 5 ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" "),
+        widget.Net( interface = InternetDeviceName, format = 'NET Speed: {down} ↓↑ {up}',  foreground = colors[2], background = colors[4], padding = 5 ),
+        widget.TextBox( background=colors[5], foreground=colors[5], text=" "),
+        #widget.Wlan( interface = InternetDeviceName, foreground = colors[2], background = colors[4]),
+        #widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
         # Middle 
 
         # End Here
-        widget.Spacer(
-            background = colors[1]
-        ),
-        widget.TextBox(
-            background = colors[0], 
-            text=":"
-        ),
-    ], 16, background = colors[0], margin=[5, 5, 5, 5] ),
-
-
-
+        widget.Spacer( background = colors[1]),
+        widget.TextBox( background = colors[0], text=":" ),
+    ], 30, background = colors[0], margin=[5, 5, 5, 5] ),
 )]
 
 # just click event
@@ -368,7 +209,14 @@ floating_layout = layout.Floating(
 		    Match(wm_class='ssh-askpass'),  #ssh-askpass
 		    Match(title='branchdialog'),    #gitk 
             Match(title='pinentry')         #GPG key password entry
-    ])     
+    ],
+
+    border_width=0,
+    border_focus="#000000",
+    border_normal="#000000",
+)     
+
+
 
 auto_fullscreen = False # True Default
 focus_on_window_activation = "focus" #smart , focus

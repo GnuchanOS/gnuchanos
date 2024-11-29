@@ -24,7 +24,7 @@ xterm*color14: #8be9fd
 xterm*color15: #ffffff
 
 ! Font settings
-xterm*faceName: Monospace:antialias=true:pixelsize=10
+xterm*faceName: Monospace:antialias=true:pixelsize=13
 
 ! Scroll settings
 xterm*ScrollBar: true
@@ -80,7 +80,6 @@ xterm*deleteIsDEL: true
 
 
 
-
-
+Xcursor.theme: GnuchanCursors
 
 

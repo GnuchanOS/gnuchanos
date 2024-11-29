@@ -51,7 +51,6 @@ echo "KEYMAP=us" >> /etc/vconsole.conf
 echo "locale-gen"
 locale-gen
 
-mkinitcpio -p linux
 read -rsn1 -p "mkinitcpio Completed! Press Enter" variable; echo
 grub-install --recheck /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -79,24 +78,19 @@ while true; do
     if [ $input == "amd" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-amdgpu 
 		pacman -S --nocomfirm xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
-        mkinitcpio -P
         break
     elif [ $input == "intel" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-intel xf86-input-libinput vulkan-intel
-        mkinitcpio -P
         break
     elif [ $input == "nvidia" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit mesa nvidia nvidia-utils nvidia-settings 
 		pacman -S --nocomfirm nvidia-dkms libglvnd vulkan-icd-loader
 		pacman -S --noconfirm xf86-input-libinput xf86-input-evdev xf86-video-vesa
-		pacman -S --noconfirm linux-headers
-		mkinitcpio -P
 		echo "use this later -> nvidia-xconfig"
         break
     elif [ $input == "ati" ]; then
         pacman -S --noconfirm xorg xorg-server xorg-xinit xorg-apps mesa xf86-video-ati 
 		pacman -S --nocomfirm xf86-input-libinput vulkan-radeon lib32-vulkan-radeon
-        mkinitcpio -P
         break
     elif [ $input == "exit" ]; then
         break
@@ -110,19 +104,8 @@ read -rsn1 -p "##################### FINISH : PRESS ENTER ######################
 
 ##################################################################################################
 read -rsn1 -p "####### Display Manager ##########################################" variable; echo
-while true; do
-    echo " | Display Manager -> | ly | lxdm | :> "; read input
-    if [ $input == "ly" ]; then
-        sudo pacman -Sy ly 
-        sudo systemctl enable ly.service
-        break
-    elif [ $input == "lxdm" ]; then
-        sudo pacman -Sy --noconfirm lxdm
-        sudo systemctl enable lxdm.service
-        break
-    else echo "What?"
-    fi
-done
+pacman -S --nocomfirm ly 
+systemctl enable ly.service
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
 
