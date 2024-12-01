@@ -4,7 +4,7 @@ read -rsn1 -p "######### AUDIO DRIVER ##########################################
 
 sudo pacman -S  --noconfirm pipewire pipewire-alsa pipewire-media-session pipewire-pulse
 systemctl --user --now enable pipewire pipewire-pulse pipewire-media-session
-yay -Sy pavucontrol-gtk
+yay -Sy pavucontrol-gtk3
 
 systemctl --user restart pipewire pipewire-pulse pipewire-media-session.service
 
