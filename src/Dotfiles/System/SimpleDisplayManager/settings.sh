@@ -1,7 +1,5 @@
+#!/bin/bash
 
-
-
-
-
+sudo cp sdm /usr/bin/
 sudo cp sdm.service /etc/systemd/system/
-sudo systemctl enable simple-dm.service
+sudo systemctl enable sdm.service
