@@ -33,7 +33,7 @@ read -rsn1 -p "##################### FINISH : PRESS ENTER ######################
 ##################################################################################################
 read -rsn1 -p "##### EXTRA SETTINGS  #############################################" variable; echo
 
-pacstrap -i /mnt base base-devel linux linux-headers nano linux-firmware
+pacstrap -i /mnt base base-devel linux linux-headers linux-firmware nano
 pacstrap /mnt grub
 genfstab -p /mnt >> /mnt/etc/fstab
 

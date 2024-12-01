@@ -121,7 +121,6 @@ pacman -S --noconfirm xterm fish vim qutebrowser
 read -rsn1 -p "##################### FINISH : PRESS ENTER ########################" variable; echo
 ##################################################################################################
 
-mkinitcpio -P
 
 ##################################################################################################
 echo "first enter this command 1: exit 2: umount /mnt/boot and umount /mnt "

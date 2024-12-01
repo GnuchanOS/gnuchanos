@@ -114,6 +114,10 @@ sudo pacman -S --noconfirm openssh
 sudo systemctl enable sshd
 sudo systemctl start sshd
 
+sudo echo "blacklist nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
+sudo echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
+mkinitcpio -p linux
+
 # CPU UCode (Important)
 while true; do
     read -p "Cpu UCODE -> <intel | amd >:| " userInput
