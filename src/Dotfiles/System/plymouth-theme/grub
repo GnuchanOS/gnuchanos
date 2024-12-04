@@ -5,7 +5,7 @@ GRUB_TIMEOUT=1
 GRUB_DISTRIBUTOR="GnuChanOS"
 
 #i8042.nokbd laptop keyboard
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash udev.log_priority=3 nvidia-drm.modeset=1 nvidia.NVreg_RegistryDwords=PerfLevelSrc=0x2222 tsc=reliable clocksource=tsc elevator=noop pci=noaer modprobe.blacklist=nouveau intel_pstate=disable processor.max_cstate=1 idle=poll"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash udev.log_priority=3 nvidia-drm.modeset=1 nvidia.NVreg_RegistryDwords=PerfLevelSrc=0x2222 tsc=reliable clocksource=tsc elevator=noop pci=noaer modprobe.blacklist=nouveau intel_pstate=disable processor.max_cstate=1 idle=poll nouveau.modeset=0"
 
 GRUB_CMDLINE_LINUX="quiet splash nokbd"
 

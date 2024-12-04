@@ -2,5 +2,5 @@
 
 
 yay -Sy python-pip
-python -m pip install psutil python-magic pyinstaller cairocffi cffi xcffib --break-system-packages
+sudo pacman -Sy python-psutil python-magic  python-cairocffi python-cffi python-xcffib
 sudo pacman -Sy tk python-adblock python-iwlib

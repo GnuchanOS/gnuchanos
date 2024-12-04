@@ -181,8 +181,8 @@
      cases. 
   -->
   <margins>
-    <top>45</top>
-    <bottom>45</bottom>
+    <top>40</top>
+    <bottom>40</bottom>
     <left>10</left>
     <right>10</right>
   </margins>
@@ -226,6 +226,10 @@
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
+      <mousebind button="A-Left" action="Press">
+        <action name="Focus"/>
+        <action name="Raise"/>
+      </mousebind>
       <mousebind button="W-Left" action="Click">
         <action name="Unshade"/>
       </mousebind>

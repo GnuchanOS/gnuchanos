@@ -96,10 +96,14 @@ sudo pacman -Sy --noconfirm tlp
 sudo pacman -Sy --noconfirm tlpui
 sudo pacman -Sy --noconfirm cpupower
 
+
 sudo systemctl enable --now irqbalance
 sudo systemctl enable --now tlp
 sudo systemctl enable --now cpupower
 sudo cpupower frequency-set -g ondemand
+
+
+sudo cpupower frequency-set -g performance
 
 # for ssd
 sudo systemctl enable --now fstrim.timer
