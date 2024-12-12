@@ -1,9 +1,12 @@
+note: winetricks grabfullscreen=y // this is for mouse capture
+
+
+
 # This game works with a pure Wine prefix
 	#:- Harry Potter 1/2/3 - no extra settings needed
 	#:- left 4 dead works fine / left 4 dead 2 - works fine i test ZOZO.GG version
-	#:- Spider man 2 The Game - works fine
 	#:- skyrim > only voice problem but fix is > winetricks --force xact
-	#:- American McGees Alice - no extra settings needed
+	#:- American McGees Alice - works fine
 	#:- GTA SA - this is internet archive version only have base game cd
 		:- original cd version need no-CD crack
 	#:- GTA Vice City CD1 and CD2 like this
@@ -13,18 +16,14 @@
 	#:- Warcraft 3 works, but you must remove or backup the movie files as Wine can't play these videos
 	#:- Red Alert 2 needs to be installed with winetricks cnc_ddraw
 	#:- Ion Fury - Works fine
-	#:- the matrix online - works fine?
-		d3dcompiler_43 / d3dx9 - d3dx9_43
-		directmusic directplay
-		that's it 
 	#:- Torchlight / 2 - works good
 	#:- Quake/2/3/4
 	#:- Ziggurat / 2
 	#:- Unreal Gold / Unreal 2 / Unreal Tournament 2004: Editor’s Choice Edition
 	#:- Forager - working good
-	#:-Fallout 1 / 2 / Tactics  works fine | fallout 3 / new vegas works fine
-	#:- 
-	#:-
+	#:- Fallout 1 / 2 / Tactics  works fine | fallout 3 / new vegas works fine / fallout 4 works fine
+	#:- Mafia: Definitive Edition works fine |  Mafia II - Definitive Edition works fine 
+	#:- call of duty 1 not working | 
 	#:-
 	#:-
 	#:-

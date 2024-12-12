@@ -85,7 +85,7 @@ keys = [
 ]
 
 # Top Bar Group Settings Max Group and Switch Window to Diffret Work group
-groups = [Group(i) for i in "1234567890"]
+groups = [Group(i) for i in "1234"]
 for i in groups:
     keys.extend([
         Key(

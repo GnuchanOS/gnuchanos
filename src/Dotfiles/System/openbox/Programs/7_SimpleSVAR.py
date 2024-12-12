@@ -36,9 +36,8 @@ class SimpleRecordAndLivestream:
         self.StreamKey = ""
         self.VideoPath = self.VideoName = ""
         self.StartRS = False
-        self.DesktopID = "VGA1 "
+        self.DesktopID = "DVI-D-0 "
         self.MonutorID = "$(pactl get-default-sink).monitor "
-        self.MicrophoneName = "alsa_input.usb-Generic_USB2.0_PC_CAMERA_20100331010203-02.mono-fallback"
 
         self.GSR          = "gpu-screen-recorder "
         self.Codecs       = "-k h264 -ac aac -c flv "
@@ -101,10 +100,6 @@ class SimpleRecordAndLivestream:
                 self.GC.GText(SetText=" Monutor ID 'xrandr here': ", TFont=self.GC.font, BColor=self.CGC.FColors0),
                 self.GC.GInput(SetValue="mID", xStretch=True, Size=(20, None), TFont=self.GC.font, BColor=self.C.purple6)
             ],
-            [
-                self.GC.GText(SetText=" Micraphone Device ID: ", TFont="Sans, 15", BColor=self.CGC.FColors0), 
-                self.GC.GInput(SetValue="mic", xStretch=True, Size=(20, None), TFont="Sans, 15", BColor=self.C.purple6),
-            ],
         ]
 
         self.SettingsTab = [
@@ -119,7 +114,6 @@ class SimpleRecordAndLivestream:
         ]
 
         self.ScreenRecordParts = [
-            [self.GC.GText(SetText="0:0:0", SetValue="live", TPosition="center", TFont="Sans, 40", xStretch=True, BColor=self.C.purple8, EmptySpace=(0, 0))],
             [   
                 self.GC.GText(SetText="RTMP URL: ", TFont=self.GC.font, BColor=self.CGC.FColors2),
                 self.GC.GInput(SetValue="rtmp", xStretch=True, Size=(20, None), TFont=self.GC.font, BColor=self.C.purple6)
@@ -155,13 +149,11 @@ class SimpleRecordAndLivestream:
                     self.GC.GButton(Text="Start Record", TFont=self.GC.font),
                     self.GC.GButton(Text="Stop Record", TFont=self.GC.font),
                     self.GC.GButton(Text="Refresh Video List", TFont=self.GC.font),
-                    self.GC.GButton(Text="Remove Video", TFont=self.GC.font),
                 self.GC.GPush(BColor=self.CGC.SColors0),
             ],
         ]
 
         self.ScreenRecordTabPart = [
-            [self.GC.GText(SetText="0:0:0", SetValue="record", TFont="Sans, 40", TPosition="center", xStretch=True, BColor=self.C.purple8, EmptySpace=(0, 0))],
             [self.GC.GText(SetText="File Path Here!", SetValue="path", xStretch=True, BColor=self.CGC.SColors0, TFont=self.GC.font, EmptySpace=(0, 0))],
             [
                 self.GC.GText(SetText="Video Name: ", EmptySpace=(0, 0)),
@@ -203,7 +195,6 @@ class SimpleRecordAndLivestream:
 
         # update window element
         self.GC.GetWindow["rtmp"].update("rtmp://a.rtmp.youtube.com/live2")
-        self.GC.GetWindow["mic"].update(self.MicrophoneName)
         self.GC.GetWindow["mID"].update(self.DesktopID)
 
         # Call Function Here
@@ -278,19 +269,6 @@ class SimpleRecordAndLivestream:
                 _videosList.sort()
                 self.GC.GetWindow["videos"].update(_videosList)
 
-        elif self.GC.GetEvent == "Remove Video":
-            if os.path.exists(f"{self.VideoPath}/{self.GC.GetValues["videos"][0]}"):
-                if len(self.VideoPath) > 0:
-                    os.remove(f"{self.VideoPath}/{self.GC.GetValues["videos"][0]}")
-                    time.sleep(1) # time sleep for wait if video path exit refresh video list
-                    _listfiles = os.listdir(self.VideoPath)
-                    _videosList = []
-                    for i in _listfiles:
-                        if str(i).endswith(".mp4") or str(i).endswith(".mkv"):
-                            _videosList.append(i)
-                        _videosList.sort()
-                    self.GC.GetWindow["videos"].update(_videosList)
-
         elif self.GC.GetEvent == "Start Record":
             if not self.StartRecordORStream:
                 if len(self.VideoPath) > 0 and len(self.VideoName) > 0:
@@ -298,31 +276,13 @@ class SimpleRecordAndLivestream:
                         _now = datetime.now()
                         _Time = f"{_now.year}-{_now.month}-{_now.day}_{_now.hour}-{_now.minute}-{_now.second}"
                         _VideoPath = f"-o {self.VideoPath}/{str(self.VideoName).replace(" ", "\\ ")}-{_Time}.mkv"
-                        _deskMic = f"-a {self.MicrophoneName}\\|{self.MonutorID} "
+                        _deskMic = f"-a {self.MonutorID} "
                         _DesktopID = f"-w {self.GC.GetValues["mID"]}"
                         _FullCommand = f"{self.GSR} {_DesktopID} {self.Codecs} {_deskMic} {self.Fps} {self.VideoQuality} {self.SoundQuality} {_VideoPath}"
                         Thread(target=self.StartScreenRecord, args=[_FullCommand]).start()
                         
-                        # Video Name Update In Window
-                        time.sleep(1) # time sleep for wait if video path exit refresh video list
-                        self.IsProgramRunning = IsProgramRunning("gpu-screen-recorder")
-                        time.sleep(1)
-                        if self.IsProgramRunning:
-                            self.TimerRecord = True
-                            self.StartRecordORStream = True
 
-                            self.GC.GetWindow["video_name"].update(f"{str(self.VideoName).replace(" ", "\\ ")}-{_Time}.mkv")
-                            if os.path.exists(self.VideoPath):
-                                _listfiles = os.listdir(self.VideoPath)
-                                _videosList = []
-                                for i in _listfiles:
-                                    if str(i).endswith(".mp4") or str(i).endswith(".mkv"):
-                                        _videosList.append(i)
-                                _videosList.sort()
-                                self.GC.GetWindow["videos"].update(_videosList)
 
-                        else:
-                            GMessage(WindowText="Record Not Starting You Must Check This Problems\nMonutor ID\nMicroPhone ID\n")
 
         elif self.GC.GetEvent == "Stop Record":
             if self.StartRecordORStream:
@@ -344,10 +304,11 @@ class SimpleRecordAndLivestream:
         elif self.GC.GetEvent == "Start Live Stream":
             if not self.StartRecordORStream:
                 if len(self.Rtmp) > 0 and len(self.Key) > 0:
-                    _deskMic = f"-a {self.MicrophoneName}\\|{self.MonutorID} "
+                    _deskMic = f"-a {self.MonutorID} "
                     _DesktopID = f"-w {self.GC.GetValues["mID"]}"
                     _FullCommand = f"{self.GSR} {_DesktopID} {self.Codecs} {_deskMic} {self.Fps} {self.VideoQuality} {self.SoundQuality} {self.StreamKey}"
                     Thread(target=self.StartLiveStream, args=[_FullCommand]).start()
+                    print(_FullCommand)
 
 
                     time.sleep(1)                  
