@@ -77,6 +77,8 @@ sudo pacman -Sy --noconfirm cmake
 sudo pacman -Sy --noconfirm openssh
 sudo pacman -Sy --noconfirm timidity
 sudo pacman -Sy --noconfirm fail2ban
+sudo pacman -Sy --nocomfirm nemo
+sudo pacman -Sy --nocomfirm deluge-gtk
 
 # Install Personal Programs
 sudo pacman -Sy --noconfirm ranger
@@ -89,6 +91,7 @@ sudo pacman -Sy --noconfirm ristretto
 sudo pacman -Sy --noconfirm lxappearance
 sudo pacman -Sy --noconfirm lxapperance-obconf
 sudo pacman -Sy --noconfirm scrot
+sudo pacman -Sy --nocomfirm npm
 
 # System Optimisation
 sudo pacman -Sy --noconfirm irqbalance

@@ -4,9 +4,6 @@
 xset -dpms
 xset s off
 
-# Start the conky to learn the shortcuts
-picom --config ~/.config/qtile/picom.conf &
-
 # display size with vga and main display for laptop
 sh ~/.config/qtile/display.sh  &
 
