@@ -16,17 +16,17 @@ note: winetricks grabfullscreen=y // this is for mouse capture
 	#:- Warcraft 3 works, but you must remove or backup the movie files as Wine can't play these videos
 	#:- Red Alert 2 needs to be installed with winetricks cnc_ddraw
 	#:- Ion Fury - Works fine
-	#:- Torchlight / 2 - works good
+	#:- Torchlight / 2 / 3 - works good
 	#:- Quake/2/3/4
 	#:- Ziggurat / 2
 	#:- Unreal Gold / Unreal 2 / Unreal Tournament 2004: Editor’s Choice Edition
 	#:- Forager - working good
-	#:- Fallout 1 / 2 / Tactics  works fine | fallout 3 / new vegas works fine / fallout 4 works fine
-	#:- Mafia: Definitive Edition works fine |  Mafia II - Definitive Edition works fine 
-	#:- call of duty 1 not working | 
-	#:-
-	#:-
-	#:-
+	#:- Fallout 1 / 2 / Tactics  works fine |  fallout 3, 4 and new vegas and  works fine
+	#:- Mafia  I / II / III - Definitive Edition works fine 
+	#:- call of duty 1 not working | 2 and 4 works fine
+	#:- warcraft 3 works fine but you need remove video files or just do backup
+	#:- Dead Island Definitive Edition works fine
+	#:- far cry 1 / 2 / 3  and blood dragon dlc/ 4  works fine
 	#:-
 	#:-
 	#:-
