@@ -111,7 +111,7 @@ keys = [
 
 # Top Bar Group Settings Max Group and Switch Window to Diffret Work group
 # groups = [Group(i) for i in "1234"] this is old
-groups = [Group(f"{i+1}", label="⬤") for i in range(4)]
+groups = [Group(f"{i+1}", label="⬤") for i in range(5)]
 for i in groups:
     keys.extend([
         Key(
