@@ -13,7 +13,8 @@ lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32
 
 #games
 sudo pacman -S --noconfirm kdialog
-yay -Sy  gamemode lib32-gamemode mangohud lib32-mangohud  
+yay -Sy  gamemode lib32-gamemode mangohud lib32-mangohud winetricks
+sudo pacman -Sy steam heroic-games-launcher-bin
 winecfg
 
 #mangohud --dlsym for opengl # MANGOHUD=1 for vulkan

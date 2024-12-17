@@ -25,6 +25,31 @@ user_home = os.path.expanduser("~")
 InternetDeviceName = "enp37s0"
 keyboardLang = "us"
 
+
+
+@lazy.function
+def toggle_sticky_windows(qtile, window=None):
+    if window is None:
+        window = qtile.current_screen.group.current_window
+    if window in sticky_windows:
+        sticky_windows.remove(window)
+    else:
+        sticky_windows.append(window)
+    return window
+
+@hook.subscribe.setgroup
+def move_sticky_windows():
+    for window in sticky_windows:
+        window.togroup()
+    return
+
+@hook.subscribe.client_killed
+def remove_sticky_windows(window):
+    if window in sticky_windows:
+        sticky_windows.remove(window)
+
+
+
 # All ShortCut Here
 keys = [
     # move focus
@@ -85,7 +110,8 @@ keys = [
 ]
 
 # Top Bar Group Settings Max Group and Switch Window to Diffret Work group
-groups = [Group(i) for i in "1234"]
+# groups = [Group(i) for i in "1234"] this is old
+groups = [Group(f"{i+1}", label="⬤") for i in range(4)]
 for i in groups:
     keys.extend([
         Key(
@@ -127,7 +153,7 @@ screens = [ Screen(
 
         # Left
         widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
-        widget.GroupBox( background = colors[4], active = colors[2], inactive = colors[3] ),
+        widget.GroupBox( background = colors[4], active = colors[2], inactive = colors[3], highlight_method="line", highlight_color="#c4a7e7", borderwidth=0 ),
         widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
         widget.Systray(padding=10,foreground=colors[2], background=colors[0] ),
         widget.TextBox( background=colors[5], foreground=colors[5], text=" " ),
@@ -201,25 +227,25 @@ bring_front_click = False
 cursor_warp = False
 
 floating_layout = layout.Floating(
-	float_rules=[
-	    *layout.Floating.default_float_rules,
-		    Match(wm_class='confirmreset'), #gitk
-		    Match(wm_class='makebranch'),   #gitk
-		    Match(wm_class='maketag'),      #gitk
-		    Match(wm_class='ssh-askpass'),  #ssh-askpass
-		    Match(title='branchdialog'),    #gitk 
-            Match(title='pinentry')         #GPG key password entry
-    ],
-
-    border_width=0,
-    border_focus="#000000",
-    border_normal="#000000",
-)     
-
+	border_focus="#9d4edd",
+	border_normal="#240046",
+	border_width=3,
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+    ]
+)
 
 
 auto_fullscreen = False # True Default
 focus_on_window_activation = "focus" #smart , focus
 reconfigure_screens = True
 auto_minimize = True
+wl_input_rules = None # wayland
 wmname = "LG3D"  #

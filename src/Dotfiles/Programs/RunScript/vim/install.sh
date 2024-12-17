@@ -4,7 +4,7 @@ cp .vimrc ~/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
-cd ~/.vim/plugged/YouCompleteMe
+echo "cd ~/.vim/plugged/YouCompleteMe"
 echo "python3 install.py --clangd-completer --tern-completer --rust-completer"
 
 

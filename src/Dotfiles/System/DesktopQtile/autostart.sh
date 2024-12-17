@@ -15,4 +15,6 @@ nitrogen --head=1 --set-scaled ~/.config/qtile/bg.png
 nitrogen  --restore &
 
 stty erase ^H
-dunst & # Alert
+
+pkill dunst &
+dunst &

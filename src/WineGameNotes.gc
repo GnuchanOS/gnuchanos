@@ -1,7 +1,5 @@
 note: winetricks grabfullscreen=y // this is for mouse capture
 
-
-
 # This game works with a pure Wine prefix
 	#:- Harry Potter 1/2/3 - no extra settings needed
 	#:- left 4 dead works fine / left 4 dead 2 - works fine i test ZOZO.GG version
@@ -26,7 +24,7 @@ note: winetricks grabfullscreen=y // this is for mouse capture
 	#:- call of duty 1 not working | 2 and 4 works fine
 	#:- warcraft 3 works fine but you need remove video files or just do backup
 	#:- Dead Island Definitive Edition works fine
-	#:- far cry 1 / 2 / 3  and blood dragon dlc/ 4  works fine
+	#:- far cry 1 / 2 free gog version not move / 3  and blood dragon dlc/ 4  works fine
 	#:-
 	#:-
 	#:-

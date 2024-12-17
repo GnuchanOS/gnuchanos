@@ -20,7 +20,6 @@ if [ -d "$LOCAL_TMP_FILE/yay" ]; then
     cd "$LOCAL_TMP_FILE/yay"
     makepkg -si
     yay -S rar irssi gpu-screen-recorder --rebuild
-	yay -Sy picom-simpleanims-next-git
 else
     echo "Yay dizini bulunamadı. Yay kurulumu başarısız oldu."
     exit 1
