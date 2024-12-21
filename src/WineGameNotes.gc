@@ -1,7 +1,16 @@
 note: winetricks grabfullscreen=y // this is for mouse capture
+gamemoderun mangohud --dlsym %command% 
+
+
 
 # This game works with a pure Wine prefix
-	#:- Harry Potter 1/2/3 - no extra settings needed
+	#:- Harry Potter and The Philosophers Stone  - works fine
+	#:- Harry Potter and the Chamber of Secrets  - needs fix
+			- https://rebane2001.com/HarryPotter2/hp2gui.html # lancher have button problem
+			- https://www.fdossena.com/?p=hp2/i.frag # fix patch 
+	#:- Harry Potter and the Prisoner of Azkaban - works fine
+
+
 	#:- left 4 dead works fine / left 4 dead 2 - works fine i test ZOZO.GG version
 	#:- skyrim > only voice problem but fix is > winetricks --force xact
 	#:- American McGees Alice - works fine

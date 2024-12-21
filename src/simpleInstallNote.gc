@@ -1,0 +1,54 @@
+parted /dev/sda mklabel msdos
+cfdisk /dev/sda
+
+# disk part
+mkswap /dev/sda1
+swapon /dev/sda1
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
+
+# mount disk part
+mount /dev/sda3 /mnt          # Mount root
+mkdir /mnt/boot              # Create /boot directory
+mount /dev/sda2 /mnt/boot    # Mount /boot
+
+# last need
+pacstrap /mnt base linux linux-firmware linux-headers base base-devel grub
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+
+# network manager
+pacman -Sy networkmanager
+systemctl enable NetworkManager
+
+grub-install --target=i386-pc /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
+echo myhostname > /etc/hostname
+
+
+useradd -m -G wheel -s /bin/bash username
+nano /etc/sudoers
+passwd username
+passwd root
+
+sudo pacman -S xorg-xauth xorg-server xorg-apps xorg-xinit xorg-xrandr xorg-xinput
+# nvidia 
+sudo pacman -S nvidia nvidia-utils libvulkan
+# amd
+sudo pacman -S xf86-video-amdgpu vulkan-radeon mesa
+# intel
+sudo pacman -S xf86-video-intel mesa
+
+pacman -Sy qtile ly fish git xterm
+systemctl enable ly
+
+reboot
+
+
+# sound
+sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber
+sudo systemctl --user enable --now pipewire.service
+sudo systemctl --user enable --now wireplumber.service
+# clock
+sudo timedatectl set-timezone Europe/Istanbul

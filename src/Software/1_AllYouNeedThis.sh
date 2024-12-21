@@ -92,11 +92,11 @@ sudo pacman -Sy --noconfirm lxappearance
 sudo pacman -Sy --noconfirm lxapperance-obconf
 sudo pacman -Sy --noconfirm scrot
 sudo pacman -Sy --nocomfirm npm
+sudo pacman -Sy --nocomfirm nrg2iso
 
 # System Optimisation
 sudo pacman -Sy --noconfirm irqbalance
 sudo pacman -Sy --noconfirm tlp
-sudo pacman -Sy --noconfirm tlpui
 sudo pacman -Sy --noconfirm cpupower
 
 
