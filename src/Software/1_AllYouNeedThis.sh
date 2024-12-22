@@ -77,8 +77,8 @@ sudo pacman -Sy --noconfirm cmake
 sudo pacman -Sy --noconfirm openssh
 sudo pacman -Sy --noconfirm timidity
 sudo pacman -Sy --noconfirm fail2ban
-sudo pacman -Sy --nocomfirm nemo
-sudo pacman -Sy --nocomfirm deluge-gtk
+sudo pacman -Sy --noconfirm nemo
+sudo pacman -Sy --noconfirm deluge-gtk
 
 # Install Personal Programs
 sudo pacman -Sy --noconfirm ranger
@@ -91,8 +91,8 @@ sudo pacman -Sy --noconfirm ristretto
 sudo pacman -Sy --noconfirm lxappearance
 sudo pacman -Sy --noconfirm lxapperance-obconf
 sudo pacman -Sy --noconfirm scrot
-sudo pacman -Sy --nocomfirm npm
-sudo pacman -Sy --nocomfirm nrg2iso
+sudo pacman -Sy --noconfirm npm
+sudo pacman -Sy --noconfirm nrg2iso
 
 # System Optimisation
 sudo pacman -Sy --noconfirm irqbalance
@@ -127,7 +127,7 @@ mkinitcpio -p linux
 
 # CPU UCode (Important)
 while true; do
-    read -p "Cpu UCODE -> <intel | amd >:| " userInput
+    read -p "Cpu UCODE -> <intel | amd > exit  :| " userInput
     userInput=$(echo "$userInput" | tr '[:upper:]' '[:lower:]')
     if [[ "$userInput" == "amd" ]]; then
         sudo pacman -Sy --noconfirm amd-ucode

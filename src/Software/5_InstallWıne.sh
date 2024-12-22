@@ -29,6 +29,8 @@ winecfg
 winetricks corefonts dxvk vkd3d  d3dcompiler_43 cnc_ddraw vcrun2019
 winetricks vcrun2015 d3dx9 vcrun2019 directx9
 winetricks mfc42
+winetricks corefonts vcrun6
+
 
 # lutris heroicGames steam
 # steam > PROTON_USE_WINED3D=1 gamemoderun mangohud --dlsym %command% -gl

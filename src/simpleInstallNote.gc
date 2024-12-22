@@ -1,5 +1,11 @@
+# first part
+
 parted /dev/sda mklabel msdos
 cfdisk /dev/sda
+
+# sda 1    - Swap
+# sda 2    - Boot
+# sda 3    - ALL Disk
 
 # disk part
 mkswap /dev/sda1
@@ -8,33 +14,37 @@ mkfs.ext4 /dev/sda2
 mkfs.ext4 /dev/sda3
 
 # mount disk part
-mount /dev/sda3 /mnt          # Mount root
-mkdir /mnt/boot              # Create /boot directory
+mount /dev/sda3 /mnt            # Mount root
+mkdir /mnt/boot                     # Create /boot directory
 mount /dev/sda2 /mnt/boot    # Mount /boot
 
 # last need
-pacstrap /mnt base linux linux-firmware linux-headers base base-devel grub
+pacstrap /mnt base base base-devel grub
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
+
+# second part
 
 # network manager
 pacman -Sy networkmanager
 systemctl enable NetworkManager
 
-grub-install --target=i386-pc /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg
-
 echo myhostname > /etc/hostname
-
-
 useradd -m -G wheel -s /bin/bash username
 nano /etc/sudoers
 passwd username
 passwd root
 
-sudo pacman -S xorg-xauth xorg-server xorg-apps xorg-xinit xorg-xrandr xorg-xinput
+sudo pacman -S xorg xterm
+# add cachyos repo
+curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
+tar xvf cachyos-repo.tar.xz && cd cachyos-repo
+sudo ./cachyos-repo.sh
+
+
+pacman -Syu linux-cachyos linux-cachyos-headers linux-firmware
 # nvidia 
-sudo pacman -S nvidia nvidia-utils libvulkan
+sudo pacman -S linux-cachyos-nvidia vulkan-icd-loader lib32-vulkan-icd-loader lib32-nvidia-utils
 # amd
 sudo pacman -S xf86-video-amdgpu vulkan-radeon mesa
 # intel
@@ -43,12 +53,15 @@ sudo pacman -S xf86-video-intel mesa
 pacman -Sy qtile ly fish git xterm
 systemctl enable ly
 
+
+grub-install --target=i386-pc /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
 reboot
 
 
 # sound
 sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber
-sudo systemctl --user enable --now pipewire.service
-sudo systemctl --user enable --now wireplumber.service
+systemctl --user enable --now pipewire.service  wireplumber.service
 # clock
 sudo timedatectl set-timezone Europe/Istanbul
