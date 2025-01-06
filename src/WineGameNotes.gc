@@ -1,6 +1,12 @@
 note: winetricks grabfullscreen=y // this is for mouse capture
-gamemoderun mangohud --dlsym %command% 
+WINE_FULLSCREEN_FSR=1 gamemoderun mangohud --dlsym %command% 
+WINE_FULLSCREEN_FSR=1 gamemoderun mangohud --dlsym wine
 
+WINE_FULLSCREEN_FSR=1 gamemoderun mangohud --dlsym WINEDLLOVERRIDES="winegstreamer=d" wine Borderlands.exe
+
+
+wine msiexec /i  
+WINE_FULLSCREEN_FSR=1 gamemoderun mangohud --dlsym wine EpicGamesLauncher.exe -SkipBuildPatchPrereq
 
 
 # This game works with a pure Wine prefix
@@ -9,8 +15,6 @@ gamemoderun mangohud --dlsym %command%
 			- https://rebane2001.com/HarryPotter2/hp2gui.html # lancher have button problem
 			- https://www.fdossena.com/?p=hp2/i.frag # fix patch 
 	#:- Harry Potter and the Prisoner of Azkaban - works fine
-
-
 	#:- left 4 dead works fine / left 4 dead 2 - works fine i test ZOZO.GG version
 	#:- skyrim > only voice problem but fix is > winetricks --force xact
 	#:- American McGees Alice - works fine
@@ -28,24 +32,24 @@ gamemoderun mangohud --dlsym %command%
 	#:- Ziggurat / 2
 	#:- Unreal Gold / Unreal 2 / Unreal Tournament 2004: Editor’s Choice Edition
 	#:- Forager - working good
-	#:- Fallout 1 / 2 / Tactics  works fine |  fallout 3, 4 and new vegas and  works fine
+	#:- Fallout 3, 4 and new vegas and  works fine
 	#:- Mafia  I / II / III - Definitive Edition works fine 
 	#:- call of duty 1 not working | 2 and 4 works fine
 	#:- warcraft 3 works fine but you need remove video files or just do backup
 	#:- Dead Island Definitive Edition works fine
 	#:- far cry 1 / 2 free gog version not move / 3  and blood dragon dlc/ 4  works fine
-	#:-
-	#:-
-	#:-
-	#:-
-	#:-
-	#:-
-	#:-
-	#:-
-	#:-
-	#:-
-	#:-
-	#:-
+	#:- rage 1 / 2
+	#:- dead rising 1 / 2 / 3 / 4
+	#:- American McGee's Alice /  Alice Madness Returns / Alice Asylum
+	#:- resident evil 4 / 5 / 6 / 7
+	#:- State of Decay
+	#:- Borderlands 1 / 2 / 3 / The Pre-Sequel works fine
+	#:- The Prototype 
+	#:- South Park stick of truth / South Park  the fractured but whole / South Park  snow day
+	#:- THE DARKNESS
+	#:- Prison Break: The Conspiracy
+	#:- f.e.a.r
+	#:- The Smurfs - Mission Vileaf - works fine / The Smurfs 2 - The Prisoner of the Green Stone - only works in steam proton
 	#:-
 	#:-
 	#:-

@@ -6,9 +6,7 @@
 #qtile cmd-obj -o cmd -f warning
 
 # All Library Here
-import os
-import subprocess
-import socket
+import os, subprocess, socket
 from typing import List
 
 from libqtile import bar, layout, widget
@@ -22,32 +20,10 @@ from libqtile import qtile
 mod = "mod4"
 terminal = guess_terminal("xterm")
 user_home = os.path.expanduser("~")
-InternetDeviceName = "enp37s0"
 keyboardLang = "us"
 
 
-
-@lazy.function
-def toggle_sticky_windows(qtile, window=None):
-    if window is None:
-        window = qtile.current_screen.group.current_window
-    if window in sticky_windows:
-        sticky_windows.remove(window)
-    else:
-        sticky_windows.append(window)
-    return window
-
-@hook.subscribe.setgroup
-def move_sticky_windows():
-    for window in sticky_windows:
-        window.togroup()
-    return
-
-@hook.subscribe.client_killed
-def remove_sticky_windows(window):
-    if window in sticky_windows:
-        sticky_windows.remove(window)
-
+InternetDeviceName = "enp37s0"
 
 
 # All ShortCut Here
@@ -104,6 +80,7 @@ keys = [
     
     # this is not ready
     #Key([mod, "shift"], "Return", lazy.spawn(f"python3 {user_home}/.config/qtile/Programs/")),
+
 
     # you can use this program runners
     Key( [mod], "f", lazy.spawn("dmenu_run -i -b -p 'GnuChanOS'  -fn 'Sans Mono:bold:pixelsize=12' -nb '#240046' -nf '#9d4edd' -sf '#9d4edd' -sb '#5a189a' ") ),
@@ -176,6 +153,9 @@ screens = [ Screen(
         widget.TextBox( background=colors[5], foreground=colors[5], text=" "),
         # Right
 
+        # for laptop
+        #widget.Battery( format='{char} {percent:2.0%} {hour:d}:{min:02d}', charge_char='↑', discharge_char='↓', full_char='■', empty_char='□', background=colors[0], foreground=colors[2], low_percentage=0.10, low_foreground=colors[4], update_interval=60 ),
+
         # End Here
         widget.Image(filename = "~/.config/qtile/img/rem.png", background = colors[0]),
         widget.TextBox(background = colors[0], text=":"),
@@ -215,6 +195,8 @@ mouse = [
     Drag([mod, "shift"], "Button3", lazy.window.set_size_floating(),       start=lazy.window.get_size()),
     Click([mod, "shift"], "Button2", lazy.window.bring_to_front())
 ]
+
+
 
 # Start Extra Things Here in AutoStart.sh
 os.popen(f"sh {user_home}/.config/qtile/autostart.sh")

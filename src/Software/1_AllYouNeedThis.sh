@@ -93,6 +93,9 @@ sudo pacman -Sy --noconfirm lxapperance-obconf
 sudo pacman -Sy --noconfirm scrot
 sudo pacman -Sy --noconfirm npm
 sudo pacman -Sy --noconfirm nrg2iso
+sudo pacman -Sy --noconfirm yt-dlp
+
+
 
 # System Optimisation
 sudo pacman -Sy --noconfirm irqbalance
