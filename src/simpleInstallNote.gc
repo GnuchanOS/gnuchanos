@@ -65,3 +65,14 @@ sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber
 systemctl --user enable --now pipewire.service  wireplumber.service
 # clock
 sudo timedatectl set-timezone Europe/Istanbul
+
+
+
+
+
+
+
+# ekstra notes
+
+
+# rsync -ah --info=progress2  input_files   target_dir

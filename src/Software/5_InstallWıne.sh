@@ -20,7 +20,43 @@ yay -Sy  gamemode lib32-gamemode mangohud lib32-mangohud winetricks
 sudo pacman -Sy steam heroic-games-launcher gamescope
 winecfg
 
-winetricks -q corefonts dxvk vkd3d  d3dcompiler_43 cnc_ddraw vcrun2019 vcrun2015 d3dx9 vcrun2019 directx9 mfc42 corefonts vcrun6 quicktime72 quicktime76 cjkfonts faudio dotnet20 vcrun2008 icodecs vcrun6 vcrun2010 msxml3 vcrun2010 dotnet40 physx wmp9 wmp10 wsh57 dxdiagn dxdiag quartz devenum wmp10
+winetricks -q corefonts 
+winetricks -q dxvk 
+winetricks -q vkd3d  
+winetricks -q d3dcompiler_43 
+winetricks -q cnc_ddraw 
+winetricks -q vcrun2019 
+winetricks -q vcrun2015 
+winetricks -q d3dx9 
+winetricks -q vcrun2019 
+winetricks -q directx9 
+winetricks -q mfc42 
+winetricks -q corefonts 
+winetricks -q vcrun6 
+winetricks -q quicktime72 
+winetricks -q quicktime76 
+winetricks -q cjkfonts 
+winetricks -q faudio 
+winetricks -q dotnet20 
+winetricks -q vcrun2008 
+winetricks -q icodecs 
+winetricks -q vcrun6 
+winetricks -q vcrun2010 
+winetricks -q msxml3 
+winetricks -q vcrun2010 
+winetricks -q dotnet40 
+winetricks -q physx 
+winetricks -q wmp9 
+winetricks -q wmp10 
+winetricks -q wsh57 
+winetricks -q dxdiagn 
+winetricks -q dxdiag 
+winetricks -q quartz 
+winetricks -q devenum 
+winetricks -q wmp10 
+winetricks -q vcrun6sp6
+winetricks -q dotnet45
+
 
 #mangohud --dlsym for opengl # MANGOHUD=1 for vulkan
 #WINEPREFIX=/home/archkubi/.wine/ primusrun gamemoderun mangohud --dlsym wine falloutwHR.exe
