@@ -35,8 +35,6 @@ Z:\home\archkubi\SSD\SteamLibrary\steamapps\common\Left 4 Dead 2\left4dead2\addo
 		you need this: WINEDLLOVERRIDES="RInput.dll=n,b" PROTON_OLD_GL_STRING=1 EXTENSION_MAX_YEAR=2008 __GL_ExtensionStringVersion=17700 gamemoderun mangohud %command%
 		| 2 works fine
 		| 4 works fine
-
-
 	#:- warcraft 3 works fine but you need remove video files or just do backup
 	#:- Dead Island Definitive Edition works fine
 	#:- far cry 1 / 2 free gog version not move / 3  and blood dragon dlc/ 4  works fine
@@ -54,7 +52,7 @@ Z:\home\archkubi\SSD\SteamLibrary\steamapps\common\Left 4 Dead 2\left4dead2\addo
 	#:- The Smurfs - Mission Vileaf - works fine / The Smurfs 2 - The Prisoner of the Green Stone - only works in steam proton
 	#:- left 4 dead 2 - cl_viewmodelfovsurvivor 90
 	#:- left 4 dead 1 - https://www.gamemaps.com/details/18483/ fov mod -> viewmodel_fov_override - open virtual desktop else it's black screen
-	#:-
+	#:- goat of duty works fine
 	#:-
 	#:-
 	#:-

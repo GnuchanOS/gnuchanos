@@ -12,11 +12,13 @@ lib32-libpulse alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib sqlite li
 lib32-libxcomposite ocl-icd lib32-ocl-icd libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs \
 lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2
 
+sudo pacman -Sy cachyos-gaming-applications proton-cachyos
+
 yay -Sy gst-plugins-{base,good,bad,ugly}
 
 #games
 sudo pacman -S --noconfirm kdialog
-yay -Sy  gamemode lib32-gamemode mangohud lib32-mangohud winetricks
+yay -Sy  gamemode lib32-gamemode winetricks
 sudo pacman -Sy steam heroic-games-launcher gamescope
 winecfg
 

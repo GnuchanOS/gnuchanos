@@ -95,7 +95,7 @@ sudo pacman -Sy --noconfirm npm
 sudo pacman -Sy --noconfirm nrg2iso
 sudo pacman -Sy --noconfirm yt-dlp
 
-
+sudo pacman -Sy --nocomfirm joystick evtest
 
 # System Optimisation
 sudo pacman -Sy --noconfirm irqbalance

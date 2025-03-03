@@ -4,11 +4,14 @@ cp .vimrc ~/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
-echo "cd ~/.vim/plugged/YouCompleteMe"
-echo "python3 install.py --clang-completer --tern-completer --rust-completer"
-
+cp "./.ycm_extra_conf.py" ~/.vim/plugged/YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe
+pwd
+python3 install.py --clang-completer --system-libclang
+pwd
 
 # for xterm
 echo "stty erase ^H" >> ~/.bashrc
 echo "fish" >> ~/.bashrc
+
 

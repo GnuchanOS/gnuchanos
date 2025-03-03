@@ -13,4 +13,5 @@ cd yay
 makepkg -si
 yay -S rar irssi gpu-screen-recorder --rebuild
 
-yay -Sy zenpower3-dkms-git roxterm
+yay -Sy zenpower3-dkms-git roxterm jstest-gtk
+yay -Sy vim vim-youcompleteme-git

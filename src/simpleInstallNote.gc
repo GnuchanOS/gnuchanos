@@ -1,4 +1,4 @@
-# first part
+# first part ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 parted /dev/sda mklabel msdos
 cfdisk /dev/sda
@@ -14,8 +14,8 @@ mkfs.ext4 /dev/sda2
 mkfs.ext4 /dev/sda3
 
 # mount disk part
-mount /dev/sda3 /mnt            # Mount root
-mkdir /mnt/boot                     # Create /boot directory
+mount /dev/sda3 /mnt              # Mount root
+mkdir /mnt/boot                         # Create /boot directory
 mount /dev/sda2 /mnt/boot    # Mount /boot
 
 # last need
@@ -23,7 +23,7 @@ pacstrap /mnt base base base-devel grub
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
-# second part
+# second part ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # network manager
 pacman -Sy networkmanager
@@ -34,6 +34,12 @@ useradd -m -G wheel -s /bin/bash username
 nano /etc/sudoers
 passwd username
 passwd root
+
+vim /etc/locale.conf
+	# LANG=en_US.UTF-8
+vim /etc/locale.gen
+	find en_us and remove #
+locale-gen
 
 sudo pacman -S xorg xterm
 # add cachyos repo
@@ -50,29 +56,28 @@ sudo pacman -S xf86-video-amdgpu vulkan-radeon mesa
 # intel
 sudo pacman -S xf86-video-intel mesa
 
-pacman -Sy qtile ly fish git xterm
+pacman -Sy qtile ly fish git xterm xorg xorg-apps xorg-xinit
 systemctl enable ly
-
 
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 reboot
 
+# third part ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # sound
 sudo pacman -S pipewire pipewire-alsa pipewire-jack pipewire-pulse wireplumber
 systemctl --user enable --now pipewire.service  wireplumber.service
+
 # clock
 sudo timedatectl set-timezone Europe/Istanbul
 
-
-
-
-
-
-
 # ekstra notes
+pacman -Syu reflector
+reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+
+
 
 
 # rsync -ah --info=progress2  input_files   target_dir
